@@ -92,6 +92,23 @@ a{color:var(--ink);text-decoration:none}a:hover{color:var(--acc)}
 .kv{display:grid;grid-template-columns:140px minmax(0,1fr);row-gap:6px}
 .sh{white-space:pre-wrap;line-height:1.9;overflow-x:auto}
 .warn{border-color:#3A1D18}
+.lab{padding:28px 20px 30px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px 48px;align-items:center}
+.labstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.labstats div{background:var(--bg);padding:14px 16px}.labstats b{display:block;font-size:26px;color:var(--hi);font-weight:700}.labstats span{color:var(--dim);font-size:12px}
+.labstats .z b{color:var(--acc)}
+.labtext{color:#C4C4BC;font-size:15px;line-height:1.75;max-width:72ch}
+.lede2{margin:-4px 0 16px;max-width:80ch}
+.specs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.spec{border:1px solid var(--line);background:var(--panel);padding:18px;display:flex;flex-direction:column;gap:10px}
+.spec:hover{border-color:#5A5A52}
+.spec .stop{display:flex;align-items:baseline;gap:10px}.spec .stop b{color:var(--hi);font-size:16px}.spec .stop i{font-style:italic;color:var(--dim);font-size:12px;margin-left:auto}
+.spec .fact{color:#D8D8D2;line-height:1.6}.spec .kv2{display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px 10px;font-size:12px;line-height:1.55}
+.spec .kv2 span:nth-child(odd){color:var(--dim)}.spec a.open{margin-top:auto;color:var(--acc)}
+.papers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pg{border:1px solid var(--line);padding:16px 18px}.pg>b{display:flex;align-items:center;gap:8px;color:var(--hi);margin-bottom:6px}
+.pp{padding:10px 0;border-top:1px dashed var(--line);line-height:1.55}.pp a.t{color:var(--hi)}.pp a.t:hover{color:var(--acc)}
+.pp .m{color:var(--dim);font-size:12px}.pp .u{color:#B4B4AC;font-size:12.5px;margin-top:2px}.pp .r{font-size:11px;padding:1px 6px;border:1px solid var(--line);color:var(--dim);margin-left:6px}
+.pp .r.model{border-color:#5A4A1A;color:var(--acc)}
 .cmd{display:flex;align-items:stretch;border:1px solid var(--acc);margin-top:4px}.cmd code{flex:1;padding:12px 14px;color:var(--hi);font:inherit;font-size:15px;min-width:0;overflow-x:auto;white-space:nowrap}
 .cmd button{all:unset;cursor:pointer;padding:0 16px;background:var(--acc);color:#070707;font-weight:700;display:grid;place-items:center}.cmd button:focus-visible{outline:2px solid var(--hi);outline-offset:2px}
 .links{display:flex;flex-direction:column;gap:6px;margin-top:6px}
@@ -100,9 +117,9 @@ a{color:var(--ink);text-decoration:none}a:hover{color:var(--acc)}
 footer{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;padding:10px 16px;margin:56px 20px 40px;background:var(--acc);color:#070707;font-weight:700}
 footer a{color:#070707;font-weight:400}footer a:hover{color:#070707;text-decoration:underline}footer nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
 @media(max-width:1180px){.hero{height:auto;display:flex;flex-direction:column;gap:12px;padding:12px}#ring{position:relative;inset:auto;height:440px;order:-1}.hero .tag{top:14px}.hud{position:relative;inset:auto;width:auto;max-width:none;text-align:left}}
-@media(max-width:1100px){.grid{grid-template-columns:minmax(0,1fr)}.col+.col{border-left:0;border-top:1px solid var(--line)}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1100px){.lab{grid-template-columns:minmax(0,1fr)}.specs{grid-template-columns:repeat(2,minmax(0,1fr))}.papers{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:minmax(0,1fr)}.col+.col{border-left:0;border-top:1px solid var(--line)}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.top{gap:12px;padding:0 12px}.top nav.mn{display:none}.strip{padding:8px 12px}.strip .food{margin-left:0}.hb h1{font-size:22px}#ring{height:360px}.lg .row{grid-template-columns:22px 86px 58px minmax(0,1fr) 56px}
-.col,.eqw{padding:16px 12px}.sec{padding:44px 12px 8px}.two,.cards{grid-template-columns:minmax(0,1fr)}.pl{overflow-x:auto}.pl .row{min-width:640px}footer{margin:44px 12px 32px}footer nav{margin-left:0}.scrub .dt{min-width:0}.kv{grid-template-columns:110px minmax(0,1fr)}}
+.col,.eqw{padding:16px 12px}.sec{padding:44px 12px 8px}.two,.cards,.specs{grid-template-columns:minmax(0,1fr)}.labstats{grid-template-columns:repeat(2,minmax(0,1fr))}.lab{padding:20px 12px}.pl{overflow-x:auto}.pl .row{min-width:640px}footer{margin:44px 12px 32px}footer nav{margin-left:0}.scrub .dt{min-width:0}.kv{grid-template-columns:110px minmax(0,1fr)}}
 </style></head><body>
 
 <div class="top">
@@ -121,6 +138,11 @@ footer a{color:#070707;font-weight:400}footer a:hover{color:#070707;text-decorat
     <div class="scrub"><button id="play" aria-label="Play">▶</button><input id="bar" type="range" min="0" value="0" aria-label="Hour of the test"><span class="dt" id="dt"></span></div></div>
   <div class="hud hb"><div class="h" id="hId"></div><h1 id="hTitle"></h1><p id="hHyp"></p></div>
   <div class="hud hv verdict"><span class="d">PASSED ALL 4 GATES</span><b id="hPass"></b><span class="d" id="hClose"></span></div>
+</section>
+
+<section class="lab" aria-label="What this is">
+  <div class="labstats" id="labstats"></div>
+  <p class="labtext">Six organisms, from a single cell with no neurons to the 302-neuron worm, each run as the model biologists published for it. They smell the same 11 Robinhood Chain assets as food and trade on paper. No language model makes the calls; every rule is written before the run, and every number below can be recomputed.</p>
 </section>
 
 <div class="grid">
@@ -143,9 +165,11 @@ footer a{color:#070707;font-weight:400}footer a:hover{color:#070707;text-decorat
 
 <section class="sec" id="rules"><div class="h">&gt; cat rules.conf</div><pre class="conf" id="conf"></pre></section>
 
-<section class="sec" id="minds"><div class="h">&gt; ps --minds</div><div class="pl" id="ps"></div></section>
+<section class="sec" id="specimens"><div class="h">&gt; cat specimens/*</div><p class="d lede2">Each mind is a real organism's rule, taken from the paper that described it. Open one to watch it think, then recompute it.</p><div class="specs" id="specs"></div></section>
 
 <section class="sec" id="ledger"><div class="h">&gt; tail ledger.json --all</div><div class="cards" id="cards"></div><p class="d" style="margin-top:12px" id="ledgerNote"></p></section>
+
+<section class="sec" id="papers"><div class="h">&gt; ls papers/</div><p class="d lede2">Every paper the engine is built on, looked up on Crossref. "model" papers set a rule or a constant; "background" papers are the experiments behind them.</p><div class="papers" id="paperList"></div></section>
 
 <section class="sec" id="cli"><div class="h">&gt; npx myxobrain-agent</div>
   <div class="two">

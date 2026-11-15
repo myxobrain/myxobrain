@@ -201,11 +201,33 @@ gate.dd      = no_worse_than hold
 gate.folds   = wins >= 3 of 4`;
 }
 
-// ---------- ps --minds ----------
+// ---------- specimens: what each organism is, the paper behind it, how it reads the market ----------
 const REFS = await SOURCES;
-$("ps").innerHTML = `<div class="row hd"><span>PID</span><span>NAME</span><span>BRAIN</span><span>MECHANISM</span><span>PAPERS</span></div>` +
-  ORG.map((k, i) => { const b = BOOKS[k], n = REFS.filter((e) => e.org === k && e.role === "model").length;
-    return `<a class="row" href="organism?k=${k}"><span class="d">${String(i + 1).padStart(2, "0")}</span><span style="color:var(--hi)"><i class="dot" style="background:${b.color}"></i>${esc(b.name.toUpperCase())}</span><span class="d">${esc(b.brain || "")}</span><span>${esc(b.rule || "")}</span><span class="d">${n} in the model</span></a>`; }).join("");
+const SPEC = {
+  physarum: ["A single cell with no neurons that solves mazes and redrew Tokyo's rail network.", "food at each asset drains the plate; tubes that carry flow thicken, idle ones fade"],
+  worm: ["The first animal whose whole nervous system was mapped: 302 neurons, every synapse.", "food per asset drives the smell neurons AWC and ASE; the real wiring turns or runs"],
+  fry: ["A transparent larva whose whole brain can be imaged at once.", "food drives 11 spiking cells, one per asset; a cell that fires hard enough buys"],
+  ant: ["A colony that finds the shorter bridge to food with pheromone alone.", "profitable trails get pheromone, idle trails evaporate; trail share is the portfolio"],
+  bee: ["A swarm that picks a new home by dancing and quorum, with no leader.", "scouts dance for assets in proportion to food; at a quorum the swarm moves"],
+  ecoli: ["A bacterium that finds food by run and tumble, comparing now with a moment ago.", "cells stay on an asset while food improves and tumble to a new one when it drops"],
+};
+const paperLink = (e) => `<a class="t" href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a>`;
+$("specs").innerHTML = ORG.map((k, i) => {
+  const b = BOOKS[k], R = REFS.filter((e) => e.org === k), model = R.find((e) => e.role === "model"), bg = R.find((e) => e.role !== "model");
+  return `<div class="spec"><div class="stop"><span class="d">${String(i + 1).padStart(2, "0")}</span><b><i class="dot" style="background:${b.color}"></i>${esc(b.name.toUpperCase())}</b><i>${esc(b.latin)}</i></div>
+    <div class="fact">${esc(SPEC[k]?.[0] || b.rule || "")}</div>
+    <div class="kv2"><span>brain</span><span>${esc(b.brain || "")}</span><span>model</span><span>${model ? esc(model.cite) : "–"}</span>${bg ? `<span>evidence</span><span>${esc(bg.cite)}</span>` : ""}<span>market</span><span>${esc(SPEC[k]?.[1] || "")}</span><span>papers</span><span>${R.length} on Crossref</span></div>
+    <a class="open" href="organism?k=${k}">[ open ${esc(b.name.toLowerCase())} · recompute ]</a></div>`;
+}).join("");
+
+// ---------- papers: every source, grouped by organism ----------
+$("paperList").innerHTML = ORG.map((k) => {
+  const R = REFS.filter((e) => e.org === k).sort((a, z) => (a.role === "model" ? 0 : 1) - (z.role === "model" ? 0 : 1) || a.year - z.year);
+  return `<div class="pg"><b><i class="dot" style="background:${BOOKS[k].color}"></i>${esc(BOOKS[k].name.toUpperCase())} <span class="d" style="font-weight:400">· ${R.length}</span></b>${R.map((e) =>
+    `<div class="pp">${paperLink(e)}<span class="r ${e.role === "model" ? "model" : ""}">${e.role === "model" ? "model" : "background"}</span>
+     <div class="m">${esc(e.cite)}${e.venue ? " · " + esc(e.venue) : ""}${e.doi ? ` · <a href="https://doi.org/${esc(e.doi)}" target="_blank" rel="noopener">doi</a>` : ""}</div>
+     <div class="u">${esc(e.use)}</div></div>`).join("")}</div>`;
+}).join("");
 
 // ---------- ledger cards ----------
 const S = await fetch("data/league-summary.json").then((r) => r.json());
@@ -218,6 +240,8 @@ $("cards").innerHTML = S.map((e) => {
 $("cards").onclick = (e) => { const c = e.target.closest(".card"); if (c) { load(c.dataset.e); scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); } };
 const runs = S.reduce((a, e) => a + Object.keys(e.orgs).length, 0), full = S.reduce((a, e) => a + Object.values(e.orgs).filter((o) => o.gates === 4).length, 0);
 $("ledgerNote").textContent = `${S.length} experiments · ${runs} organism runs · ${full} passed all gates · sealed holdout: ${full ? "opened" : "still sealed"}`;
+$("labstats").innerHTML = [["0", "language models", 1], [String(ORG.length), "organisms"], ["302", "neurons in the worm"], [String(REFS.length), "papers on Crossref"], [String(runs), "organism runs"], [String(full), "passed all gates", 1]]
+  .map(([v, l, z]) => `<div class="${z ? "z" : ""}"><b>${v}</b><span>${l}</span></div>`).join("");
 
 // ---------- live + sources + repo ----------
 const site = await fetch("site.json").then((r) => (r.ok ? r.json() : {}), () => ({}));

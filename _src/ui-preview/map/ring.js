@@ -11,7 +11,7 @@ const TAU = Math.PI * 2;
 const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const hash = (k) => { const s = Math.sin(k * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); };
 
-export function createRing(canvas, CON) {
+export function createRing(canvas, CON, opts = {}) {   // opts: { labels: false, scale: 0.26 } for stills and banners
   const ctx = canvas.getContext("2d"), N = CON.n.length;
   // sphere sprite, as on WORMBRAIN
   const SPR = document.createElement("canvas"); SPR.width = SPR.height = 64;
@@ -100,7 +100,7 @@ export function createRing(canvas, CON) {
     if (!drag) { dragX += vx; dragY += vy; vx *= .94; vy *= .94; }
     const spin = t * (org === "worm" ? .42 : .12), ax = .18 + Math.sin(t * .55) * .1 + dragY, ay = Math.sin(t * .4) * .18 + dragX;
     const cz = Math.cos(spin), sz2 = Math.sin(spin), cx1 = Math.cos(ax), sx1 = Math.sin(ax), cy1 = Math.cos(ay), sy1 = Math.sin(ay);
-    const S = Math.min(W, H) * (W < 700 ? .24 : .26), CX = W / 2, CY = H / 2, F = 4;
+    const S = Math.min(W, H) * (opts.scale ?? (W < 700 ? .24 : .26)), CX = W / 2, CY = H / 2, F = 4;
     const proj = (x, y, z) => { const x1 = x * cz - y * sz2, y1 = x * sz2 + y * cz, y2 = y1 * cx1 - z * sx1, z2 = y1 * sx1 + z * cx1, x3 = x1 * cy1 + z2 * sy1, z3 = -x1 * sy1 + z2 * cy1, p = F / (F - z3); return [CX + x3 * S * p, CY + y2 * S * p, z3, p]; };
     for (let k = 0; k < N; k++) { const j = .02;
       const q = proj(cur[k * 3] + Math.sin(t * 1.3 + ph[k]) * j, cur[k * 3 + 1] + Math.cos(t * 1.1 + ph[k] * 1.3) * j, cur[k * 3 + 2] + Math.sin(t * .9 + ph[k] * .7) * j);
@@ -140,6 +140,7 @@ export function createRing(canvas, CON) {
       const w = ctx.measureText(name).width + 12, bx = dir < 0 ? lx - 8 - w : lx + 8;
       ctx.fillStyle = lit ? "rgba(255,176,0,.95)" : "rgba(14,14,14,.85)"; ctx.beginPath(); ctx.roundRect(bx, ly - 9, w, 18, 9); ctx.fill();
       ctx.strokeStyle = "rgba(255,255,255,.25)"; ctx.stroke(); ctx.fillStyle = lit ? "#000" : "#d8d8d8"; ctx.fillText(name, bx + 6, ly + .5); };
+    if (opts.labels === false) { ctx.globalAlpha = 1; return; }
     if (wormA > .05) for (const [k, name] of TOOLS) { const f = Math.max(0, Math.min(1, .5 + P[k * 4 + 2] * .6)), lit = Math.min(1, glowN[k]); pill(P[k * 4], P[k * 4 + 1], name, lit > .2, (.25 + .6 * f + .4 * lit) * wormA); }
     if (wormA < .95) anchors.forEach((a, i) => { const q = proj(a[0] * 1.08, a[1] * 1.08, a[2]), f = Math.max(0, Math.min(1, .5 + q[2] * .6)); pill(q[0], q[1], labelOf(i), held[i], (.35 + .55 * f) * (1 - wormA)); });
     ctx.globalAlpha = 1;
