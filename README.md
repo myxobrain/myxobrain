@@ -10,7 +10,7 @@
 <p align="center"><b>Six minds. One market. Real data.</b></p>
 
 <p align="center">
-  <a href="https://myxobrain.github.io/myxobrain/"><img src="https://img.shields.io/badge/web-myxobrain.github.io-070707" alt="Website"></a>
+  <a href="https://myxobrain.com/"><img src="https://img.shields.io/badge/web-myxobrain.com-070707" alt="Website"></a>
   <a href="https://www.npmjs.com/package/myxobrain-agent"><img src="https://img.shields.io/npm/v/myxobrain-agent?color=FFB000&labelColor=070707&label=npm" alt="npm"></a>
   <a href="https://github.com/myxobrain/myxobrain-agent"><img src="https://img.shields.io/badge/cli-myxobrain--agent-070707?logo=github" alt="CLI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-555555" alt="MIT"></a>
