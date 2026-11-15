@@ -1,0 +1,13 @@
+{
+ "repo": "https://github.com/myxobrain/myxobrain",
+ "anchor": {
+  "type": "opentimestamps",
+  "hash": "f94b4ac7e9dd44fe11e9d9f89a09dc4138a65a7164ee6fbb2fb7c109545a7c51",
+  "at": "2026-11-09 16:58 UTC",
+  "file": "raw/lab/ledger-anchored.json",
+  "proof": "raw/lab/ledger-anchored.json.ots",
+  "confirmed": true,
+  "block": 975200
+ },
+ "live": false
+}

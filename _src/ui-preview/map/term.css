@@ -1,0 +1,76 @@
+/* term.css: the MYXOBRAIN//TERM skin, loaded after each page's own <style> so it wins at equal specificity.
+   Monospace everywhere, square corners, one amber accent, green/red for up/down. */
+:root{--bg:#070707;--panel:#0D0D0B;--line:#262622;--ink:#D8D8D2;--dim:#8C8C84;--acc:#FFB000;--up:#5BD68A;--dn:#FF7A66;--hi:#F2F2EC}
+body{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;background:var(--bg);color:var(--ink)}
+h1,h2,h3,.who h1,.card h2,.sec h2{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:700;letter-spacing:-.02em;color:var(--hi)}
+::selection{background:var(--acc);color:#070707}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* header */
+header{background:var(--panel)}
+.logo{font-family:"JetBrains Mono",monospace;font-weight:700;letter-spacing:.08em;color:var(--acc)}
+.logo .term{color:var(--acc);letter-spacing:.04em}
+.logo .term::after{content:"_";animation:term-blink 1.1s steps(1) infinite}
+@keyframes term-blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.logo .term::after{animation:none}}
+.navl a,header nav a{border-radius:0}
+header nav a.on{color:var(--acc)}
+
+/* labels read as prompts */
+.k,.eqh{color:var(--acc)!important;letter-spacing:.08em}
+.k::before{content:"> "}
+.sec>.sh>.k,.sec .k{font-size:12px}
+
+/* square everything that was rounded, except dots and petri dishes */
+.tabs,.tabs button,.tabs a,.exps button,.exps a,.navl a,.btn,.go,.step,.mind,.eq,.stats div,.lstats div,.proof>div,.rorg,.src>div,pre,.state,#chart,.folds,.verify button,.chip,.st,.mtabs button,.sb,.card,footer button,button{border-radius:0!important}
+
+/* active tabs and switches: amber block */
+.exps button.on,.exps a.on,.tabs button.on,.tabs a.on,.mtabs button.on{background:var(--acc)!important;color:#070707!important;border-color:var(--acc)!important;font-weight:700}
+.exps button:hover,.exps a:hover,.tabs a:hover,.mtabs button:hover{border-color:var(--acc);color:var(--ink)}
+
+/* primary actions */
+.go,.btn,footer button,.verify button,main button{background:var(--acc)!important;color:#070707!important;font-weight:700}
+.btn.ghost{background:transparent!important;color:var(--acc)!important;border:1px solid var(--acc)!important}
+.go::before,.btn::before{content:"[ "}.go::after,.btn::after{content:" ]"}
+
+/* numbers */
+.pos,.ok{color:var(--up)!important}.neg,.no{color:var(--dn)!important}
+.st.FAILED,.chip.FAILED{background:#2A1411;color:var(--dn)}
+.st.PROMISING,.chip.PROMISING{background:#12301E;color:var(--up)}
+.stats b,.lstats b,.state b{color:var(--hi)}
+
+/* intro strip with the asset universe */
+.intro{background:#0B0B09}
+.uni{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--dim);margin-bottom:8px}
+.uni b{color:var(--acc);font-weight:700}
+.intro p{font-size:13px}
+
+/* map stage */
+.stage{background:radial-gradient(ellipse at 50% 50%,#12110A 0,var(--bg) 70%)}
+.hint{color:var(--dim)}
+
+/* scroll sections */
+.sec .lede{color:#B4B4AC;font-size:14px}
+.step,.mind,.eq,.proof>div,.rorg{background:var(--panel);border-color:var(--line)}
+.step .n{color:var(--acc)}
+.mind:hover{border-color:var(--acc)}
+.rules div{border-top:1px dashed var(--line)}
+.rules b::before{content:"# ";color:var(--dim)}
+.sb td a{color:var(--hi)}
+.not li::marker{content:"WARN  ";color:var(--dn);font-size:11px}
+.foot{border-top:1px solid var(--line)}
+.foot .logo{color:var(--acc)}
+
+/* organism, live and data pages */
+.brain{background:radial-gradient(ellipse at 50% 50%,#12110A,var(--bg) 70%)}
+.notes div{border-top-width:1px}
+.gates div{border-bottom-style:dashed}
+.src>div{background:var(--panel)}
+pre{background:#0B0B09;color:#C4C4BC}
+
+/* fixes after the first look */
+.logo .term{margin-left:-8px}
+header .crumb{display:none}
+.sec h2{font-size:28px;line-height:1.2}
+@media(min-width:1280px){.sec h2{font-size:30px}}
+@media(max-width:600px){.sec h2{font-size:22px}.uni span:last-child{margin-left:0!important}}

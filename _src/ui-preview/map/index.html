@@ -1,0 +1,181 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PETRI//TERM</title>
+<meta name="description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results.">
+<meta property="og:type" content="website"><meta property="og:site_name" content="MYXOBRAIN"><meta property="og:url" content="https://myxobrain.github.io/myxobrain/">
+<meta property="og:title" content="MYXOBRAIN · Six minds, one market"><meta property="og:description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules. Real data, honest results.">
+<meta property="og:image" content="https://myxobrain.github.io/myxobrain/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="MYXOBRAIN · Six minds, one market"><meta name="twitter:description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules. Real data, honest results.">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/icon-32.png"><link rel="icon" type="image/png" sizes="64x64" href="brand/icon-64.png"><link rel="apple-touch-icon" href="brand/icon-180.png">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="term.css">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:13px/1.5 "JetBrains Mono",ui-monospace,monospace}
+a{color:var(--ink);text-decoration:none}a:hover{color:var(--acc)}
+.p{color:var(--acc)}.d{color:var(--dim)}.up{color:var(--up)}.dn{color:var(--dn)}
+/* top bar */
+.top{display:flex;align-items:center;gap:18px;height:46px;padding:0 20px;border-bottom:1px solid var(--line);background:var(--panel);position:sticky;top:0;z-index:5}
+.top .logo{display:flex;align-items:center;gap:8px;font-weight:700;letter-spacing:.08em;color:var(--acc);white-space:nowrap}
+.top .logo .term{margin-left:-8px}
+.exps{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.exps button{all:unset;cursor:pointer;padding:6px 10px;color:var(--dim);white-space:nowrap}
+.exps button:hover{color:var(--ink)}
+.exps button.on{background:var(--acc);color:#070707;font-weight:700}
+.top nav.mn{margin-left:auto;display:flex;gap:16px;white-space:nowrap}.top nav.mn a{color:var(--dim)}.top nav.mn a:hover{color:var(--acc)}
+.strip{display:flex;flex-wrap:wrap;gap:4px 18px;padding:8px 20px;border-bottom:1px solid var(--line);color:var(--dim)}
+.strip .food{margin-left:auto}
+/* head line */
+.head{padding:22px 20px 18px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end}
+.head h1{font-size:30px;line-height:1.15;color:var(--hi);font-weight:700;letter-spacing:-.02em}
+.head p{color:#B4B4AC;margin-top:8px;max-width:900px}
+.verdict{border:1px solid var(--line);padding:12px 16px;text-align:right;white-space:nowrap}.verdict b{display:block;font-size:26px;color:var(--hi)}
+/* hero B: the specimen fills the stage, panels float over it */
+.hero{position:relative;height:760px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 50% 52%,#16140A 0,#070707 66%);overflow:hidden}
+#ring{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}#ring:active{cursor:grabbing}
+.hero .tag{position:absolute;z-index:2;left:50%;top:18px;transform:translateX(-50%);text-align:center;pointer-events:none;white-space:nowrap}
+.hud{position:absolute;z-index:2;background:rgba(11,11,9,.84);border:1px solid var(--line);padding:14px 16px;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;flex-direction:column;gap:8px;min-width:0}
+.hl{left:20px;top:20px;width:360px}.hr{right:20px;top:20px;width:400px}
+.hb{left:20px;bottom:20px;max-width:640px}.hb h1{font-size:30px;line-height:1.15;color:var(--hi);font-weight:700;letter-spacing:-.02em;text-wrap:balance}.hb p{color:#B4B4AC;max-width:72ch}
+.hv{right:20px;bottom:20px;text-align:right}.hint{font-size:11px}
+.lg .row{display:grid;grid-template-columns:24px 96px 62px minmax(0,1fr) 62px;align-items:center;gap:6px;padding:5px 4px;border-bottom:1px solid #1A1A17;cursor:pointer}
+.lg .row.hd{color:var(--dim);cursor:default;border-bottom-color:var(--line)}
+.lg .row:not(.hd):hover,.lg .row.on{background:#1A180D}.lg .row.on{box-shadow:inset 2px 0 0 var(--acc)}
+.lg .r{text-align:right}.lg .bar{white-space:pre;overflow:hidden}
+/* main grid */
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 460px;border-bottom:1px solid var(--line)}
+.col{padding:18px 20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.col+.col{border-left:1px solid var(--line);background:#0B0B09}
+.h{color:var(--acc)}
+.box{overflow-x:auto}
+.tbl{display:grid;min-width:640px}
+.tr{display:grid;grid-template-columns:34px 130px 84px minmax(0,1fr) 70px 74px 70px;align-items:center;padding:6px 0;border-bottom:1px solid #1A1A17;cursor:pointer}
+.tr.hd{color:var(--dim);cursor:default;border-bottom-color:var(--line)}
+.tr:not(.hd):hover,.tr.on{background:#14130C}
+.tr .r{text-align:right}.tr .bar{padding-left:16px;white-space:pre;overflow:hidden}
+.dot{display:inline-block;width:8px;height:8px;margin-right:8px;vertical-align:0}
+.fm{display:grid;grid-template-columns:130px repeat(4,minmax(0,1fr));gap:4px;min-width:560px}
+.fm span{padding:6px 8px;white-space:nowrap}
+.fm .w{background:var(--acc);color:#070707;font-weight:700}.fm .l{background:#161613}
+.fm .hd{color:var(--dim);padding:2px 8px}
+/* network + gates */
+#net{width:100%;display:block}
+#net .e{transition:opacity .2s}
+.scrub{display:flex;align-items:center;gap:10px}
+.scrub button{all:unset;cursor:pointer;width:30px;height:30px;display:grid;place-items:center;background:var(--acc);color:#070707;font-weight:700}
+.scrub input{flex:1;accent-color:var(--acc);min-width:0}
+.scrub .dt{color:var(--dim);white-space:nowrap;min-width:150px;text-align:right}
+.gm{display:grid;grid-template-columns:100px repeat(4,minmax(0,1fr));gap:4px;font-size:11px}
+.gm span{padding:5px 6px;text-align:center}.gm .nm{text-align:left;padding-left:0;font-size:12px}
+.gm .ps{background:#12301E;color:var(--up)}.gm .fl{background:#2A1411;color:var(--dn)}.gm .hd{color:var(--dim)}
+.note{border-top:1px solid var(--line);padding-top:12px;color:#B4B4AC;line-height:1.7}
+.acts{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.acts a{border:1px solid #3A3A34;padding:11px;text-align:center}.acts a.pri{border-color:var(--acc);color:var(--acc)}
+.acts a:hover{background:#14130C}
+/* equity */
+.eqw{padding:18px 20px;border-bottom:1px solid var(--line)}
+#eq{width:100%;height:190px;display:block;margin-top:10px;background:#0B0B09;border:1px solid var(--line)}
+/* lower sections */
+.sec{padding:56px 20px 8px;max-width:1600px}
+.sec>.h{margin-bottom:14px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.conf{background:var(--panel);border:1px solid var(--line);padding:20px 24px;line-height:1.9;color:#B4B4AC;white-space:pre-wrap;overflow-x:auto;font:inherit}
+.cm{color:#6A6A62}.v{color:var(--acc)}
+.pl{border:1px solid var(--line)}
+.pl .row{display:grid;grid-template-columns:50px 130px 140px minmax(0,1fr) 120px;gap:10px;padding:11px 16px;border-bottom:1px solid #1A1A17;align-items:baseline}
+.pl .row:last-child{border-bottom:0}.pl .row.hd{background:var(--panel);color:var(--dim)}
+.pl a.row:hover{background:#14130C}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:8px;cursor:pointer;text-align:left;font:inherit;color:inherit;background:transparent}
+.card:hover{border-color:#5A5A52}.card.on{border-color:var(--acc)}
+.card .t{display:flex;justify-content:space-between}.card .ft{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding-top:8px}
+.panel{border:1px solid var(--line);background:var(--panel);padding:20px;display:flex;flex-direction:column;gap:10px;line-height:1.7}
+.kv{display:grid;grid-template-columns:140px minmax(0,1fr);row-gap:6px}
+.sh{white-space:pre-wrap;line-height:1.9;overflow-x:auto}
+.warn{border-color:#3A1D18}
+.cmd{display:flex;align-items:stretch;border:1px solid var(--acc);margin-top:4px}.cmd code{flex:1;padding:12px 14px;color:var(--hi);font:inherit;font-size:15px;min-width:0;overflow-x:auto;white-space:nowrap}
+.cmd button{all:unset;cursor:pointer;padding:0 16px;background:var(--acc);color:#070707;font-weight:700;display:grid;place-items:center}.cmd button:focus-visible{outline:2px solid var(--hi);outline-offset:2px}
+.links{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.panel.term{background:#050505}.tout{margin:0;font:inherit;font-size:12px;line-height:1.7;white-space:pre;overflow-x:auto;color:#C4C4BC;background:transparent;border:0;padding:0}
+.tout::before{content:none}
+footer{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;padding:10px 16px;margin:56px 20px 40px;background:var(--acc);color:#070707;font-weight:700}
+footer a{color:#070707;font-weight:400}footer a:hover{color:#070707;text-decoration:underline}footer nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:6px 18px}
+@media(max-width:1180px){.hero{height:auto;display:flex;flex-direction:column;gap:12px;padding:12px}#ring{position:relative;inset:auto;height:440px;order:-1}.hero .tag{top:14px}.hud{position:relative;inset:auto;width:auto;max-width:none;text-align:left}}
+@media(max-width:1100px){.grid{grid-template-columns:minmax(0,1fr)}.col+.col{border-left:0;border-top:1px solid var(--line)}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.top{gap:12px;padding:0 12px}.top nav.mn{display:none}.strip{padding:8px 12px}.strip .food{margin-left:0}.hb h1{font-size:22px}#ring{height:360px}.lg .row{grid-template-columns:22px 86px 58px minmax(0,1fr) 56px}
+.col,.eqw{padding:16px 12px}.sec{padding:44px 12px 8px}.two,.cards{grid-template-columns:minmax(0,1fr)}.pl{overflow-x:auto}.pl .row{min-width:640px}footer{margin:44px 12px 32px}footer nav{margin-left:0}.scrub .dt{min-width:0}.kv{grid-template-columns:110px minmax(0,1fr)}}
+</style></head><body>
+
+<div class="top">
+  <a class="logo" href="./"><img src="brand/logo.png" alt="" width="20" height="20" style="display:block">PETRI<span class="term">//TERM</span></a>
+  <nav class="exps" id="exps" aria-label="Experiments"></nav>
+  <nav class="mn" aria-label="Main"><a href="live">LIVE-001 <span class="up">●</span></a><a href="data">DATA</a><a href="#cli">CLI</a><a href="https://www.npmjs.com/package/myxobrain-agent" target="_blank" rel="noopener">NPM</a><a href="https://github.com/myxobrain/myxobrain" target="_blank" rel="noopener" class="ghLink">GITHUB</a></nav>
+</div>
+<div class="strip" id="strip"></div>
+
+<section class="hero" aria-label="Specimen">
+  <canvas id="ring" aria-label="The selected organism in 3D: the worm's 302 neurons on a ring, or the other organisms' state per asset at the selected hour. Drag to turn it."></canvas>
+  <div class="tag cen"><span class="p" id="spName"></span><br><span class="d" id="spSub"></span></div>
+  <div class="hud hl"><div class="h">&gt; LEAGUE · 4 folds, after costs</div><div class="lg" id="league"></div><div class="d hint">click a book to morph the specimen</div></div>
+  <div class="hud hr"><div class="h">&gt; NETWORK · 11 assets → 6 minds → trade</div>
+    <svg id="net" viewBox="0 0 420 250" role="img" aria-label="Which assets each organism holds at the selected hour"></svg>
+    <div class="scrub"><button id="play" aria-label="Play">▶</button><input id="bar" type="range" min="0" value="0" aria-label="Hour of the test"><span class="dt" id="dt"></span></div></div>
+  <div class="hud hb"><div class="h" id="hId"></div><h1 id="hTitle"></h1><p id="hHyp"></p></div>
+  <div class="hud hv verdict"><span class="d">PASSED ALL 4 GATES</span><b id="hPass"></b><span class="d" id="hClose"></span></div>
+</section>
+
+<div class="grid">
+  <section class="col" aria-label="Folds">
+    <div class="h">&gt; FOLDS · test return per fold (W = beat hold)</div>
+    <div class="box"><div class="fm" id="folds"></div></div>
+  </section>
+  <aside class="col" aria-label="Gates">
+    <div class="h">&gt; GATES · all four required</div>
+    <div class="gm" id="gates"></div>
+    <div class="note" id="note"></div>
+    <div class="acts"><a class="pri" id="openOrg" href="organism">[ O ] OPEN SPECIMEN · RECOMPUTE IT</a><a href="data">[ D ] RAW DATA + SHA-256</a></div>
+  </aside>
+</div>
+
+<section class="eqw" aria-label="Equity">
+  <div class="h">&gt; EQUITY · every book over the 4 test folds <span class="d">(dashed = hold)</span></div>
+  <svg id="eq" viewBox="0 0 1000 190" preserveAspectRatio="none" role="img" aria-label="Equity curves of every book"></svg>
+</section>
+
+<section class="sec" id="rules"><div class="h">&gt; cat rules.conf</div><pre class="conf" id="conf"></pre></section>
+
+<section class="sec" id="minds"><div class="h">&gt; ps --minds</div><div class="pl" id="ps"></div></section>
+
+<section class="sec" id="ledger"><div class="h">&gt; tail ledger.json --all</div><div class="cards" id="cards"></div><p class="d" style="margin-top:12px" id="ledgerNote"></p></section>
+
+<section class="sec" id="cli"><div class="h">&gt; npx myxobrain-agent</div>
+  <div class="two">
+    <div class="panel"><div class="hi" style="font-size:20px;font-weight:700">MYXOBRAIN in your terminal.</div>
+      <p style="color:#B4B4AC">The same league, folds, gates and live test, read straight from this site. It holds no keys, has no dependencies and never trades. <span class="p">myxo verify</span> re-hashes every engine and raw file against the manifest.</p>
+      <div class="cmd"><code id="npx">npx myxobrain-agent</code><button type="button" id="copy" aria-label="Copy the install command">COPY</button></div>
+      <div class="sh d">npm i -g myxobrain-agent   <span class="cm"># then run: myxo</span></div>
+      <div class="links"><a href="https://www.npmjs.com/package/myxobrain-agent" target="_blank" rel="noopener" class="p">[ N ] NPM · myxobrain-agent</a><a href="https://github.com/myxobrain/myxobrain-agent" target="_blank" rel="noopener">[ G ] GITHUB · myxobrain-agent</a><a href="https://github.com/myxobrain/myxobrain" target="_blank" rel="noopener" class="ghLink">[ S ] GITHUB · engine + data</a></div>
+    </div>
+    <div class="panel term"><div class="d">$ myxo league 4</div><pre class="tout" id="tout"></pre></div>
+  </div>
+</section>
+
+<section class="sec two" id="live">
+  <div class="panel"><div class="h">&gt; status LIVE-001</div><div id="liveBox" class="kv"></div><a href="live" class="p" style="margin-top:6px">[ L ] OPEN LIVE BOARD</a></div>
+  <div class="panel"><div class="h">&gt; reproduce</div><div class="sh"><span class="d">$</span> node server/league/verify-all.mjs
+<span class="up">✓ every published result recomputed, fold by fold</span>
+<span class="d">$</span> DRY=1 node server/league/run.mjs EXP-004
+<span class="d">→ data/league/dry/</span></div><div class="d">node &gt;= 20 · zero dependencies · <a id="repo" href="data" class="p">source</a></div></div>
+</section>
+
+<section class="sec two" id="sources">
+  <div class="panel"><div class="h">&gt; sources</div><div id="srcBox"></div></div>
+  <div class="panel warn"><div class="dn">&gt; warnings</div>
+    <div>WARN paper money only, backtest and forward</div><div>WARN models of organisms, not living ones</div>
+    <div>WARN EXP-002 covers ~5 weeks of on-chain data</div><div>WARN past results don't promise future returns</div><div>WARN not financial advice</div></div>
+</section>
+
+<footer><span>PETRI//TERM</span><span style="font-weight:400">six minds · one market</span>
+<nav aria-label="Footer"><a id="fRepo" href="https://github.com/myxobrain/myxobrain" target="_blank" rel="noopener" class="ghLink">GITHUB</a><a href="https://www.npmjs.com/package/myxobrain-agent" target="_blank" rel="noopener">NPM</a><a href="data">RAW DATA</a><a href="live">LIVE</a></nav></footer>
+
+<script type="module" src="term.js"></script>
+</body></html>
