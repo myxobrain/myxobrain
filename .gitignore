@@ -1,2 +1,14 @@
 deploy/dist/
 .DS_Store
+# X kit: rendered media stay local (re-render with konten-x/_tools and konten-x/_src)
+konten-x/prelaunch/
+konten-x/afterlaunch/
+konten-x/video/
+konten-x/research/
+konten-x/paydex/
+konten-x/burn/
+konten-x/postingan-ca/
+konten-x/product/
+konten-x/brand/
+konten-x/myxobrain-x-kit/
+konten-x/_hf/

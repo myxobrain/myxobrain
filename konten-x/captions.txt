@@ -1,0 +1,277 @@
+MYXOBRAIN · X CONTENT KIT · captions and posting order
+Images are 1600x900 PNG (rendered at 2x). Videos are H.264 mp4, 1920x1080, 30 fps. Research cards are 1920x1080.
+Voice: calm, curious, like a lab notebook. Cite the paper. No "gm", no emoji spam, no price promises, no "100x".
+MYXOBRAIN is an experiment, not a fund: paper trading, not financial advice.
+Write the $MYXO contract address ONLY in the caption, never on an image. Paste it where you see [CA].
+Every number (returns, gates): check myxobrain.com or `npx myxobrain-agent` the day you post.
+
+Posting order
+  Pre-launch:   one post a day, p01 to p06, plus MYXO PAPER research cards (POSTS.txt, R01 to R08) in between.
+                Pin p01 until launch.
+  Launch day:   postingan-ca/ca-demo.mp4 first, pin it for 48 hours. a01 the same evening.
+  After launch: 4-6 posts a day. Mix: 1-2 afterlaunch images (a02-a20), 1 video from video/, 1-2 research cards (POSTS.txt).
+                Suggested order below. Each specimen video goes the same day as its research cards.
+  Milestones:   paydex/paydex-20k.mp4 when market cap reaches $20K and the DEX Screener profile is paid.
+                burn/burn-all-supply.mp4 right after the dev wallet burns its whole supply, with the tx link.
+
+
+===== PRE-LAUNCH (prelaunch/) =====
+
+p01.png · teaser (pin)
+Six minds. No AI.
+
+A slime mold, a worm, a fish larva, ants, bees and a bacterium, each run as the model biologists published for it, are about to read the market.
+
+myxobrain.com
+
+---
+p02.png · physarum
+A single cell with no neurons redrew Tokyo's rail network.
+
+In 2010 a slime mold, given oat flakes placed like the cities around Tokyo, grew a network comparable to the real railway.
+
+Soon it gets eleven assets instead. (Tero et al., Science 2010)
+
+---
+p03.png · the worm
+302 neurons. Every one simulated.
+
+C. elegans was the first animal whose whole nervous system was mapped. MYXOBRAIN runs it on the real 2019 connectome.
+
+---
+p04.png · the method
+Rules first. Results second.
+
+Four walk-forward folds. 48 settings, chosen on past data only. Five seeds. 0.3% cost on every trade. Four gates to pass.
+
+All written down before the run.
+
+---
+p05.png · the control
+Every mind has a blind twin.
+
+The same organism with no food runs beside it. If the twin does as well, the food isn't doing anything, and you'll see that too.
+
+---
+p06.png · soon
+The lab opens soon.
+
+Six organisms. Eleven Robinhood Chain assets. Every number recomputable.
+
+myxobrain.com
+
+
+===== LAUNCH DAY =====
+
+postingan-ca/ca-demo.mp4 · the CA post (pin for 48h)
+$MYXO is live on Robinhood Chain.
+
+Six models of real organisms, from a slime mold to a 302-neuron worm, read the market as food. Click any of them on the site and watch the same 302 particles become its mind.
+
+CA: [CA]
+
+myxobrain.com · npx myxobrain-agent
+
+---
+a01.png · the lab is open (same evening)
+The lab is open.
+
+$MYXO: six minds, one market, every rule written before the run.
+
+CA: [CA]
+myxobrain.com
+
+
+===== AFTER LAUNCH (afterlaunch/ and video/) =====
+
+a02.png · the specimens
+Six minds, six papers.
+
+Every organism on myxobrain.com comes with the paper that described it and the line of code that uses it.
+
+---
+video/morph.mp4 · the six
+One particle cloud, six minds.
+
+Worm, slime mold, fish larva, ants, bees, E. coli. Each shape is that organism's real state per asset, straight from the engine.
+
+myxobrain.com
+
+---
+a03.png · physarum
+The blob that redrew Tokyo now reads 11 assets.
+
+Tubes that carry flow thicken. Idle tubes fade. (Tero, Kobayashi & Nakagaki, 2007)
+
+---
+video/specimen-physarum.mp4
+Specimen 01: Physarum polycephalum.
+
+No neurons. One cell. It solved a maze in 2000 and redrew Tokyo's railway in 2010. In MYXOBRAIN, the market is its food.
+
+---
+a04.png · the worm
+The market goes in through the nose.
+
+Food per asset drives the worm's smell neurons, AWC and ASE. The real wiring decides: turn or run.
+
+---
+video/specimen-worm.mp4
+Specimen 02: Caenorhabditis elegans.
+
+302 neurons, the first nervous system ever fully mapped. Every neuron simulated, on the Cook et al. 2019 connectome.
+
+---
+a05.png · the fry
+Eleven cells, one per asset.
+
+A cell that fires hard enough buys. A silent cell sells. The synapses learn by Hebb's rule.
+
+---
+video/specimen-fry.mp4
+Specimen 03: the zebrafish larva.
+
+A brain you can watch whole. In MYXOBRAIN it is 11 spiking cells, and in EXP-004 it came closest of all six: 3 of 4 gates.
+
+---
+a06.png · the ants
+Trails to profit get pheromone.
+
+Unused trails evaporate. The colony's trail share is its portfolio. (Dorigo & Gambardella, 1997)
+
+---
+video/specimen-ant.mp4
+Specimen 04: the ant colony.
+
+No ant knows the map. The colony still finds the shorter bridge. (Goss et al., 1989)
+
+---
+a07.png · the bees
+They move when enough agree.
+
+Scouts dance for assets in proportion to their food. At a quorum, the swarm moves.
+
+---
+video/specimen-bee.mp4
+Specimen 05: the honeybee swarm.
+
+A few hundred scouts, a lot of dancing, one decision. (Seeley & Buhrman, 1999)
+
+---
+a08.png · E. coli
+Keep swimming while it gets better.
+
+When the food drops, tumble to a random new heading. A memory of seconds is enough. (Berg & Brown, 1972)
+
+---
+video/specimen-ecoli.mp4
+Specimen 06: Escherichia coli.
+
+Too small to smell left from right, so it compares now with a moment ago. (Berg & Purcell, 1977)
+
+---
+a09.png · the morph
+One click, a different mind.
+
+On myxobrain.com the same 302 particles morph into each organism's real state, hour by hour. Drag the time slider and watch it change.
+
+---
+video/explainer.mp4 · how it works
+The market becomes food. Six organisms. Four gates. Then you recompute it.
+
+All in 26 seconds. myxobrain.com
+
+---
+a10.png · the scoreboard
+The scoreboard nobody likes to show.
+
+Every fold. Every gate. Every FAIL. To pass, an organism must beat holding on return and Sharpe, keep drawdown no worse, and win 3 of 4 folds.
+
+---
+a11.png · rules.conf
+Written before the run.
+
+48 settings chosen on past data only. Five seeds. 0.3% cost. A blind twin. Three sealed months.
+
+---
+a12.png · the ledger
+Zero passes. All published.
+
+Six experiments, 36 organism runs. The failures stay on the record with the rest.
+
+---
+video/papers.mp4 · the papers
+The MYXO PAPER series in 30 seconds: the slime mold that solved a maze, the first mapped brain, the glass fish, the ant bridge, the bee quorum, run and tumble.
+
+---
+a13.png · the papers
+20 papers. All on Crossref.
+
+Every rule and every constant in the engine traces back to a published source.
+
+---
+a14.png · in your terminal
+npx myxobrain-agent
+
+League, folds, gates, the live test, and `myxo verify` to re-hash every engine and data file the site publishes.
+
+---
+a15.png · recompute
+Press Recompute. Your browser reruns the test.
+
+The same engine files, the same raw data, the same five seeds. If one number were typed in by hand, it wouldn't match.
+
+---
+a16.png · the control
+If a coin flip wins, you'll see it.
+
+Every mind runs beside a blind twin with no food, plain holding, and random positions.
+
+---
+a17.png · the holdout
+Three months, sealed.
+
+The last three months of data stay unopened until an experiment passes every gate.
+
+---
+a18.png · no language model
+Biology decides. Not a chatbot.
+
+Tubes, spikes, pheromone, dances and tumbles: published models, run as math.
+
+---
+a19.png · the six
+Six ways to find food.
+
+Flow. Smell. Spikes. Trails. Quorum. Tumble.
+
+---
+a20.png · the question
+Can a mind with no brain beat holding?
+
+So far, no. Every attempt is published. Check it yourself: myxobrain.com
+
+
+===== MILESTONES =====
+
+paydex/paydex-20k.mp4 · market cap $20K + DEX Screener paid
+$20K.
+
+Thank you for the first 20K. The DEX Screener profile is paid.
+
+The lab keeps running: six minds, every number public.
+
+CA: [CA]
+
+---
+burn/burn-all-supply.mp4 · dev wallet burned its whole supply
+Burned. All of it.
+
+The dev wallet sent its entire $MYXO supply to the dead address. It now holds zero.
+
+tx: [TX LINK]
+CA: [CA]
+
+
+===== RESEARCH SERIES =====
+POSTS.txt has every MYXO PAPER card (research/01-32) with its caption and source, plus product posts from the site.

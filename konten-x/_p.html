@@ -1,0 +1,91 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<!-- MYXOBRAIN X posts, 1600 x 900 (rendered at 2x by _tools/posts.mjs). ?p=<id>. Served at /kit/ with the built site at /,
+     so the 3D specimen is the site's own ring.js. Images: _hf/ (Hugging Face stills) or product/ (screenshots of myxobrain.com). -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070707;--fg:#EDEDE7;--dim:#9A9A92;--faint:#6A6A62;--acc:#FFB000;--line:#262622}
+*{box-sizing:border-box;margin:0}
+html,body{width:1600px;height:900px;overflow:hidden;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#s{position:relative;width:1600px;height:900px;overflow:hidden;background:radial-gradient(ellipse at 72% 55%,#151309 0,#070707 60%)}
+.abs{position:absolute}
+.photo{position:absolute;top:0;right:0;bottom:0;left:560px;background:center/cover no-repeat;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 28%,#000 100%);mask-image:linear-gradient(90deg,transparent,#000 28%,#000 100%)}
+.shot{position:absolute;right:64px;top:160px;width:840px;border:1px solid #33332D;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.shot img{display:block;width:100%}
+canvas.ring{position:absolute;left:560px;top:60px;width:1040px;height:800px}
+.brand{left:90px;top:74px;display:flex;align-items:center;gap:14px;font:500 18px "JetBrains Mono",monospace;letter-spacing:.3em}
+.brand img{width:34px;height:34px}
+.kick{left:90px;top:250px;font:500 18px "JetBrains Mono",monospace;letter-spacing:.24em;color:var(--acc)}
+.head{left:88px;top:292px;width:640px;font-weight:400;font-size:64px;line-height:1.06;letter-spacing:-.025em;text-wrap:balance}
+.head em{font-style:normal;color:var(--acc)}
+.sub{left:90px;width:560px;font-weight:300;font-size:25px;line-height:1.45;color:#B8B8B0}
+.cite{left:90px;bottom:118px;font:400 15px "JetBrains Mono",monospace;letter-spacing:.06em;color:var(--dim);width:600px}
+.foot{left:90px;right:90px;bottom:62px;display:flex;justify-content:space-between;font:400 16px "JetBrains Mono",monospace;color:var(--faint);letter-spacing:.06em}
+.foot b{color:var(--fg);font-weight:400}
+.wide .head{width:1100px}.wide .sub{width:900px}
+</style></head><body><div id="s"></div>
+<script type="module">
+import { createRing } from "/ring.js";
+const q = new URLSearchParams(location.search), T = q.get("ticker") || "$MYXO";
+// id: [kick, head, sub, visual, cite]   visual: "hf:<still>" | "shot:<product png>" | "ring:<organism>"
+const P = {
+  // ---------- pre-launch ----------
+  p01: ["MYXOBRAIN · SOON", "Six minds.<br><em>No AI.</em>", "A slime mold, a worm, a fish larva, ants, bees and a bacterium are about to read the market.", "hf:jars", ""],
+  p02: ["SPECIMEN 01 · PHYSARUM", "Biology already<br>solved <em>routing.</em>", "A single cell with no neurons redrew Tokyo's rail network. Now it gets eleven assets.", "hf:city", "Tero et al. · Science · 2010"],
+  p03: ["SPECIMEN 02 · C. ELEGANS", "302 neurons.<br><em>Every one simulated.</em>", "The first animal ever fully wired, running on its real 2019 connectome.", "hf:worm", "Cook et al. · Nature · 2019"],
+  p04: ["THE METHOD", "Rules first.<br><em>Results second.</em>", "Four folds, 48 settings on past data only, five seeds, 0.3% cost, four gates. Written down before every run.", "hf:scope", ""],
+  p05: ["THE CONTROL", "Every mind has<br>a <em>blind twin.</em>", "The same organism with no food runs beside it. If the twin does as well, the food isn't doing anything.", "hf:vault", ""],
+  p06: ["MYXOBRAIN · ROBINHOOD CHAIN", "The lab opens<br><em>soon.</em>", "Six organisms. Eleven assets. Every number recomputable.", "hf:petri", ""],
+  // ---------- after launch ----------
+  a01: ["LIVE ON ROBINHOOD CHAIN", `${T}<br><em>is live.</em>`, "Six models of real organisms read the same eleven assets as food. The lab is open.", "hf:petri", ""],
+  a02: ["THE SPECIMENS", "Six minds,<br><em>six papers.</em>", "Each organism comes with the paper that described it, and the line of code that uses it.", "shot:specimens.png", ""],
+  a03: ["SPECIMEN 01 · PHYSARUM", "The blob that<br>redrew <em>Tokyo.</em>", "Tubes that carry flow thicken. Idle tubes fade. In MYXOBRAIN, the flow is the market.", "hf:slime", "Tero, Kobayashi & Nakagaki · J. Theor. Biol. · 2007"],
+  a04: ["SPECIMEN 02 · WORM", "The market goes in<br>through the <em>nose.</em>", "Food per asset drives the smell neurons AWC and ASE. The real wiring decides: turn or run.", "hf:worm", "Cook et al. · Nature · 2019"],
+  a05: ["SPECIMEN 03 · FRY", "Eleven cells,<br><em>one per asset.</em>", "A cell that fires hard enough buys. A silent cell sells. Synapses learn by Hebb's rule.", "hf:fry", "Hebb · 1949 · Chen et al. · Nature · 2013"],
+  a06: ["SPECIMEN 04 · ANTS", "Trails to profit<br>get <em>pheromone.</em>", "Unused trails evaporate. The colony's trail share is its portfolio.", "hf:ants", "Dorigo & Gambardella · 1997 · Goss et al. · 1989"],
+  a07: ["SPECIMEN 05 · BEES", "They move when<br><em>enough agree.</em>", "Scouts dance for assets in proportion to their food. At a quorum, the swarm moves.", "hf:swarm", "Seeley & Buhrman · 1999 · Passino & Seeley · 2006"],
+  a08: ["SPECIMEN 06 · E. COLI", "Keep swimming while<br>it gets <em>better.</em>", "When the food drops, tumble to a random new heading. A memory of seconds is enough.", "hf:bacteria", "Berg & Brown · Nature · 1972"],
+  a09: ["ON MYXOBRAIN.COM", "One click.<br><em>A different mind.</em>", "The same 302 particles morph into each organism's real state per asset, hour by hour.", "shot:hero-fry.png", ""],
+  a10: ["THE SCOREBOARD", "Every fold.<br>Every gate. <em>Every fail.</em>", "Beat holding on return and Sharpe, no deeper drawdown, win 3 of 4 folds. All four, or it failed.", "shot:folds-gates.png", ""],
+  a11: ["RULES.CONF", "Written before<br><em>the run.</em>", "48 settings chosen on past data only. Five seeds. 0.3% cost. A blind twin. Three sealed months.", "shot:rules.png", ""],
+  a12: ["THE LEDGER", "Zero passes.<br><em>All published.</em>", "Six experiments, 36 organism runs. The failures stay on the record with the rest.", "shot:ledger.png", ""],
+  a13: ["THE PAPERS", "20 papers.<br><em>All on Crossref.</em>", "Every rule and constant traced to a published source.", "shot:sources.png", ""],
+  a14: ["IN YOUR TERMINAL", "npx<br><em>myxobrain-agent</em>", "League, folds, gates, and myxo verify to re-hash every engine and data file the site publishes.", "shot:cli.png", ""],
+  a15: ["DON'T TRUST, VERIFY", "Press recompute.<br><em>Your browser reruns it.</em>", "The same engine files, the same raw data, the same five seeds. If one number were typed in, it wouldn't match.", "shot:specimen-fry.png", ""],
+  a16: ["THE CONTROL", "If a coin flip wins,<br><em>you'll see it.</em>", "Every mind runs beside a blind twin with no food, plain holding, and random positions.", "hf:scope", ""],
+  a17: ["THE HOLDOUT", "Three months,<br><em>sealed.</em>", "The last three months of data stay unopened until an experiment passes every gate.", "hf:vault", ""],
+  a18: ["NO LANGUAGE MODEL", "Biology decides.<br><em>Not a chatbot.</em>", "Tubes, spikes, pheromone, dances and tumbles. Published models, run as math.", "hf:comb", ""],
+  a19: ["THE SIX", "Six ways<br>to <em>find food.</em>", "Flow. Smell. Spikes. Trails. Quorum. Tumble.", "ring:worm", ""],
+  a20: ["THE QUESTION", "Can a mind with no brain<br><em>beat holding?</em>", "So far, no. Every attempt is published. Check it yourself: myxobrain.com", "hf:dawn", ""],
+};
+window.POSTS = Object.keys(P);
+const id = q.get("p") || "p01", [kick, head, sub, vis, cite] = P[id], s = document.getElementById("s");
+const [kind, ref] = vis.split(":");
+const exists = (u) => fetch(u, { method: "HEAD" }).then((r) => r.ok, () => false);
+let html = "";
+const hf = `/kit/_hf/${ref}.webp`, shot = `/kit/product/${ref}`;
+let hfUse = hf;
+let mode = kind;
+const ALT = { vault: "jars", dawn: "city", ember: "slime" };   // stand-ins until Hugging Face quota allows the real still
+if (kind === "hf" && !(await exists(hf))) { const alt = ALT[ref] && `/kit/_hf/${ALT[ref]}.webp`; if (alt && (await exists(alt))) hfUse = alt; else mode = "ring"; }
+if (kind === "shot" && !(await exists(shot))) mode = "ring";
+if (mode === "hf") html += `<div class="photo" style="background-image:url(${hfUse})"></div>`;
+if (mode === "shot") html += `<div class="shot"><img src="${shot}" alt=""></div>`;
+if (mode === "ring") html += `<canvas class="ring"></canvas>`;
+html += `<div class="abs brand"><img src="/brand/logo.png" alt="">MYXOBRAIN</div>
+  <div class="abs kick">${kick}</div><div class="abs head">${head}</div><div class="abs sub" id="sub">${sub}</div>
+  ${cite ? `<div class="abs cite">${cite}</div>` : ""}
+  <div class="abs foot"><b>myxobrain.com</b><span>paper trading · not financial advice</span></div>`;
+s.innerHTML = html;
+await document.fonts.ready;
+document.getElementById("sub").style.top = 292 + document.querySelector(".head").offsetHeight + 30 + "px";
+if (mode === "ring") {
+  const org = kind === "ring" ? ref : ({ slime: "physarum", city: "physarum", petri: "physarum", worm: "worm", fry: "fry", ants: "ant", swarm: "bee", comb: "bee", bacteria: "ecoli" }[ref] || "worm");
+  const [C, L] = await Promise.all([fetch("/data/connectome-ring.json").then((r) => r.json()), fetch("/data/league-EXP-004.json").then((r) => r.json())]);
+  const F = L.organisms[org]?.frames || [], f = F[Math.floor(F.length * 0.62)];
+  createRing(document.querySelector("canvas.ring"), C, { labels: org === "worm", scale: 0.3 }).show(org, { syms: L.syms, w: f?.w || [], inner: f?.inner, label: (i) => L.syms[i] });
+}
+await Promise.all([...document.images].map((i) => i.complete ? 0 : new Promise((r) => (i.onload = i.onerror = r))));
+const bg = document.querySelector(".photo"); if (bg) await new Promise((r) => { const i = new Image(); i.onload = i.onerror = r; i.src = hfUse; });
+window.READY = true;
+</script></body></html>

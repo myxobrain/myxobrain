@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>MYXOBRAIN studio</title>
+<!-- One page renders every still: ?card=N (a MYXO PAPER card, 1920x1080) or ?banner (X header, 3000x1000).
+     Served from deploy/dist/_studio/ by render.mjs so it can use the site's own ring.js and data. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070707;--ink:#EDEDE7;--dim:#9A9A92;--faint:#6A6A62;--acc:#FFB000}
+*{margin:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;overflow:hidden}
+.frame{position:relative;overflow:hidden;background:radial-gradient(ellipse at 70% 62%,#151309 0,#070707 58%)}
+.grain{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:3px 3px;pointer-events:none}
+canvas{position:absolute;display:block}
+.mono{font-family:"JetBrains Mono",monospace}
+/* card */
+#card{width:1920px;height:1080px}
+#card canvas{left:700px;top:250px;width:1300px;height:880px}
+.tag{position:absolute;left:132px;top:118px;font:500 22px "JetBrains Mono",monospace;letter-spacing:.32em;color:var(--acc)}
+.head{position:absolute;left:128px;top:178px;width:1560px;font-weight:400;font-size:88px;line-height:1.04;letter-spacing:-.02em;text-wrap:balance}
+.sub{position:absolute;left:132px;width:1100px;font-weight:300;font-size:38px;line-height:1.3;color:var(--dim)}
+.cite{position:absolute;left:132px;bottom:110px;font:400 21px "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--dim)}
+.mark{position:absolute;right:120px;bottom:100px;display:flex;align-items:center;gap:16px;font:500 22px "JetBrains Mono",monospace;letter-spacing:.32em;color:var(--ink)}
+.mark img{width:44px;height:44px}
+.spec{position:absolute;right:124px;top:122px;font:400 18px "JetBrains Mono",monospace;letter-spacing:.18em;color:var(--faint);text-align:right}
+/* banner */
+#banner{width:3000px;height:1000px}
+#banner .cell{position:absolute;top:120px;width:400px;height:700px}
+#banner .cell canvas{left:0;top:0;width:400px;height:600px}
+#banner .cap{position:absolute;left:0;right:0;top:610px;text-align:center;font:400 19px "JetBrains Mono",monospace;letter-spacing:.22em;color:var(--dim)}
+#banner .cap b{display:block;color:var(--ink);font-weight:500;margin-bottom:8px}
+#banner .dom{position:absolute;right:120px;bottom:86px;font:400 46px "JetBrains Mono",monospace;letter-spacing:.14em;color:var(--ink)}
+</style></head><body>
+<div id="root"></div>
+<script type="module">
+import { createRing } from "../ring.js";
+import { CARDS } from "./cards.mjs";
+const q = new URLSearchParams(location.search);
+const [CON, L] = await Promise.all([fetch("../data/connectome-ring.json").then((r) => r.json()), fetch("../data/league-EXP-004.json").then((r) => r.json())]);
+// show each organism at the hour its state is most spread out, so its shape reads (entropy of its inner state per asset)
+const spread = (k) => { const F = L.organisms[k]?.frames || []; let best = F.length - 1, top = -1;
+  F.forEach((f, i) => { const v = (f.inner || []).map((x) => Math.max(0, +x || 0)), s = v.reduce((a, b) => a + b, 0); if (!s) return;
+    const h = -v.reduce((a, x) => a + (x > 0 ? (x / s) * Math.log(x / s) : 0), 0); if (h > top) { top = h; best = i; } }); return best; };
+const state = (k) => { const f = L.organisms[k]?.frames[spread(k)]; return { syms: L.syms, w: f?.w || [], inner: f?.inner, label: (i) => (f && f.w[i] > 0.01 ? `${L.syms[i]} ${(f.w[i] * 100).toFixed(0)}%` : L.syms[i]) }; };
+const LATIN = { physarum: "PHYSARUM POLYCEPHALUM", worm: "CAENORHABDITIS ELEGANS", fry: "DANIO RERIO · LARVA", ant: "FORMICIDAE · COLONY", bee: "APIS MELLIFERA · SWARM", ecoli: "ESCHERICHIA COLI" };
+const root = document.getElementById("root");
+const ready = [];
+if (q.has("banner")) {
+  const order = ["physarum", "worm", "fry", "ant", "bee", "ecoli"], cite = { physarum: "Tero 2007", worm: "Cook 2019", fry: "Hebb 1949", ant: "Dorigo 1997", bee: "Seeley 1999", ecoli: "Berg 1972" };
+  root.innerHTML = `<div class="frame" id="banner"><div class="grain"></div>${order.map((k, i) => `<div class="cell" style="left:${560 + i * 395}px"><canvas data-k="${k}"></canvas><div class="cap"><b>${String(i + 1).padStart(2, "0")} · ${k === "ecoli" ? "E. COLI" : k.toUpperCase()}</b>${cite[k]}</div></div>`).join("")}<div class="dom">myxobrain.com</div></div>`;
+  document.querySelectorAll("#banner canvas").forEach((c) => { const r = createRing(c, CON, { labels: false, scale: 0.3 }); r.show(c.dataset.k, state(c.dataset.k)); });
+} else {
+  const c = CARDS.find((x) => x.n === +q.get("card")) || CARDS[0];
+  root.innerHTML = `<div class="frame" id="card"><div class="grain"></div><canvas></canvas>
+    <div class="tag">MYXO PAPER №${String(c.n).padStart(2, "0")} · ${c.tag}</div>
+    <div class="spec">SPECIMEN · ${LATIN[c.org]}</div>
+    <div class="head">${c.head}</div><div class="sub" id="sub">${c.sub}</div>
+    <div class="cite">${c.cite}</div>
+    <div class="mark"><img src="../brand/logo-white.png" alt="">MYXOBRAIN</div></div>`;
+  await document.fonts.ready;
+  const h = document.querySelector(".head"); document.getElementById("sub").style.top = 178 + h.offsetHeight + 34 + "px";
+  const r = createRing(document.querySelector("#card canvas"), CON, { labels: c.org === "worm", scale: 0.3 });
+  r.show(c.org, state(c.org));
+}
+await document.fonts.ready;
+window.__ready = true;
+</script>
+</body></html>

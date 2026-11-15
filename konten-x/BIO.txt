@@ -1,0 +1,31 @@
+MYXOBRAIN · profil X
+
+Nama (display name):
+MYXOBRAIN
+
+Handle saran (cek mana yang masih kosong):
+@myxobrain / @myxobrainrh / @myxobrain_lab
+
+Bio utama (riset, 139/160):
+Six real organisms, from a slime mold to a 302-neuron worm, run from their published models and paper-trading Robinhood Chain. No AI. $MYXO
+
+Bio alternatif 1 (lab notebook, 131/160):
+A slime mold, a worm, a fish larva, ants, bees and E. coli read the market as food. Rules written first. Every number recomputable.
+
+Bio alternatif 2 (pendek, 48/160):
+Six minds. No brain required. One market. No AI.
+
+Lokasi:
+inside a petri dish
+
+Website:
+myxobrain.com
+
+Foto profil: myxobrain-x-kit/profile-picture.png
+Banner: myxobrain-x-kit/banner.png (3000x1000, enam specimen berjajar, domain di kanan bawah)
+
+Pinned post: sebelum launch pin p01 (prelaunch/p01.png).
+Setelah CA keluar, pin postingan-ca/ca-demo.mp4 selama 48 jam.
+
+Logo token (latar transparan): myxobrain-x-kit/logo-amber.png
+Ticker yang dipakai di video: $MYXO (kalau ticker berbeda: TICKER='$XYZ' node _tools/render.mjs <scene>, lalu demo.mjs)
