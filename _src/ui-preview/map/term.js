@@ -31,20 +31,9 @@ async function load(id) {
   document.querySelectorAll("#cards .card").forEach((c) => c.classList.toggle("on", c.dataset.e === L.id));
   if (!L.organisms[focus]) focus = ORG.filter((k) => L.organisms[k]).sort((a, b) => passed(b) - passed(a))[0] || ORG[0];
   $("bar").max = L.t.length - 1; $("bar").value = idx;
-  head(); leagueTable(); foldMatrix(); gates(); conf(); net(); equity(); stamp(); tout();
+  leagueTable(); foldMatrix(); gates(); conf(); net(); equity(); stamp(); tout();
 }
 const passed = (k) => (L.organisms[k] ? L.organisms[k].gates.filter((g) => g.pass).length : -1);
-
-// ---------- head ----------
-function head() {
-  $("hId").textContent = `> ${L.id} · registered before the run`;
-  $("hTitle").textContent = L.title;
-  $("hHyp").textContent = L.hypothesis;
-  const runs = ORG.filter((k) => L.organisms[k]), pass = runs.filter((k) => L.organisms[k].verdict !== "FAILED").length;
-  $("hPass").textContent = `${pass} / ${runs.length}`;
-  const top = runs.sort((a, b) => passed(b) - passed(a))[0];
-  $("hClose").textContent = top ? `closest: ${BOOKS[top].name.toUpperCase()} ${passed(top)}/4` : "";
-}
 
 // ---------- league table ----------
 function leagueTable() {
