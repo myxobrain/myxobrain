@@ -2,6 +2,7 @@
 // Every number comes from data/league-*.json, data/league-summary.json, data/sources.json, live/live.json or site.json.
 import { BOOKS, EXPS, league, pct, day, weights, stats, SOURCES, INNER } from "./common.js";
 import { createRing } from "./ring.js";
+import { fieldNotes } from "./field.js";
 
 const $ = (id) => document.getElementById(id);
 const ORG = Object.keys(BOOKS).filter((k) => BOOKS[k].kind === "org");
@@ -32,6 +33,7 @@ async function load(id) {
   if (!L.organisms[focus]) focus = ORG.filter((k) => L.organisms[k]).sort((a, b) => passed(b) - passed(a))[0] || ORG[0];
   $("bar").max = L.t.length - 1; $("bar").value = idx;
   leagueTable(); foldMatrix(); gates(); conf(); net(); equity(); stamp(); tout();
+  try { fieldNotes($("fns"), L, CON); } catch (e) { console.error(e); }
 }
 const passed = (k) => (L.organisms[k] ? L.organisms[k].gates.filter((g) => g.pass).length : -1);
 

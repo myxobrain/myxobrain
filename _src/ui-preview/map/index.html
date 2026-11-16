@@ -6,7 +6,7 @@
 <meta property="og:image" content="https://myxobrain.com/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@myxobrainrh"><meta name="twitter:creator" content="@myxobrainrh"><meta name="twitter:title" content="MYXOBRAIN · Six minds, one market"><meta name="twitter:description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules. Real data, honest results.">
 <link rel="icon" type="image/png" sizes="32x32" href="brand/icon-32.png"><link rel="icon" type="image/png" sizes="64x64" href="brand/icon-64.png"><link rel="apple-touch-icon" href="brand/icon-180.png">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="term.css">
 <style>
 *{box-sizing:border-box;margin:0}
@@ -121,6 +121,22 @@ footer a{color:#070707;font-weight:400}footer a:hover{color:#070707;text-decorat
 @media(max-width:1100px){.lab{grid-template-columns:minmax(0,1fr)}.specs{grid-template-columns:repeat(2,minmax(0,1fr))}.papers{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:minmax(0,1fr)}.col+.col{border-left:0;border-top:1px solid var(--line)}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.top{gap:12px;padding:0 12px}.top nav.mn{display:none}.strip{padding:8px 12px}.strip .food{margin-left:0}.hb h1{font-size:22px}#ring{height:360px}.lg .row{grid-template-columns:22px 86px 58px minmax(0,1fr) 56px}
 .col,.eqw{padding:16px 12px}.sec{padding:44px 12px 8px}.two,.cards,.specs{grid-template-columns:minmax(0,1fr)}.labstats{grid-template-columns:repeat(2,minmax(0,1fr))}.lab{padding:20px 12px}.pl{overflow-x:auto}.pl .row{min-width:640px}footer{margin:44px 12px 32px}footer nav{margin-left:0}.scrub .dt{min-width:0}.kv{grid-template-columns:110px minmax(0,1fr)}}
+
+/* field notes: stippled figures drawn from the published data */
+.notes{padding:40px 20px 8px;border-bottom:1px solid var(--line)}
+.notes .lede2{max-width:760px}
+.fns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:22px}
+.fn{background:#F1F1EE;color:#121210;padding:14px 14px 18px}
+.fn .fig{position:relative;line-height:0}
+.fn canvas{display:block;width:100%;height:auto;aspect-ratio:1200/620}
+.fn .tag{position:absolute;left:-1px;top:-1px;background:#F1F1EE;color:#121210;font:400 17px/1 "JetBrains Mono",monospace;padding:14px 22px 16px 12px;letter-spacing:.02em}
+.fn .dot{position:absolute;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;background:#D98A2B;box-shadow:0 0 0 3px rgba(241,241,238,.85)}
+.fn h3{color:#121210;font:500 clamp(28px,3.1vw,46px)/1.04 "Space Grotesk",Inter,system-ui,sans-serif;letter-spacing:-.025em;margin:34px 8px 34px}
+.fn .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:0 8px}
+.fn .cols p{font:400 13px/1.55 "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.04em;color:#45453f;margin:0}
+.fn .src{margin:20px 8px 0;font:400 11px/1.4 "JetBrains Mono",monospace;color:#8a8a82;word-break:break-word}
+@media(max-width:1000px){.fns{grid-template-columns:1fr}}
+@media(max-width:700px){.notes{padding:28px 12px 4px}.fn .cols{grid-template-columns:1fr;gap:14px}.fn .tag{font-size:13px;padding:9px 14px 10px 8px}}
 </style></head><body>
 
 <div class="top">
@@ -143,6 +159,7 @@ footer a{color:#070707;font-weight:400}footer a:hover{color:#070707;text-decorat
   <p class="labtext">Six organisms, from a single cell with no neurons to the 302-neuron worm, each run as the model biologists published for it. They smell the same 11 Robinhood Chain assets as food and trade on paper. No language model makes the calls; every rule is written before the run, and every number below can be recomputed.</p>
 </section>
 
+<section class="sec notes" id="notes" aria-label="Field notes"><div class="h">&gt; ls field-notes/</div><p class="d lede2">One figure per organism, stippled from the engine's own state, hour by hour, for the experiment selected above. The amber dot marks a real moment in the data. Nothing here is illustration.</p><div class="fns" id="fns"></div></section>
 <div class="grid">
   <section class="col" aria-label="Folds">
     <div class="h">&gt; FOLDS · test return per fold (W = beat hold)</div>

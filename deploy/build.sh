@@ -4,7 +4,7 @@
 #   the raw inputs it reads (raw/), and raw/manifest.json with the SHA-256 of every engine and raw file.
 set -e; cd "$(dirname "$0")/.."; S=_src/ui-preview; O=deploy/dist
 rm -rf $O; mkdir -p $O/lib $O/data $O/engine/lab $O/engine/lib $O/engine/league/vendor $O/raw/league $O/raw/lab
-cp $S/map/index.html $S/map/organism.html $S/map/data.html $S/map/live.html $S/map/common.js $S/map/home.js $S/map/verify-worker.js $S/map/term.css $S/map/term.js $S/map/ring.js $O/
+cp $S/map/index.html $S/map/organism.html $S/map/data.html $S/map/live.html $S/map/common.js $S/map/home.js $S/map/verify-worker.js $S/map/term.css $S/map/term.js $S/map/ring.js $S/map/field.js $O/
 mkdir -p $O/brand; cp $S/map/brand/* $O/brand/
 cp $S/landing/g/specimens.js $S/landing/g/worm.json $O/lib/
 node server/league/summary.mjs >/dev/null; cp $S/map/data/league-*.json $O/data/; cp data/sources.json $O/data/   # papers behind each organism (server/sources/verify.mjs)
