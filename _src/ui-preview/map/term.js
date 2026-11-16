@@ -27,7 +27,7 @@ $("exps").onclick = (e) => { const b = e.target.closest("button"); if (b) load(b
 async function load(id) {
   L = await league(id);
   idx = L.t.length - 1;
-  history.replaceState(null, "", "?exp=" + L.id + location.hash);
+  history.replaceState(null, "", (L.id === "EXP-004" ? location.pathname : "?exp=" + L.id) + location.hash);   // the default experiment keeps a clean URL
   document.querySelectorAll("#exps button").forEach((b) => b.classList.toggle("on", b.dataset.e === L.id));
   document.querySelectorAll("#cards .card").forEach((c) => c.classList.toggle("on", c.dataset.e === L.id));
   if (!L.organisms[focus]) focus = ORG.filter((k) => L.organisms[k]).sort((a, b) => passed(b) - passed(a))[0] || ORG[0];
