@@ -19,7 +19,7 @@ function stipple(canvas, draw, seed) {
     o[i * 4] = o[i * 4 + 1] = o[i * 4 + 2] = ink ? 18 : 241; o[i * 4 + 3] = 255;
   }
   ctx.putImageData(out, 0, 0);
-  if (mark.labels) { ctx.font = "500 15px 'JetBrains Mono', monospace"; ctx.fillStyle = "#3a3a36"; for (const [t, x, y, al] of mark.labels) { ctx.textAlign = al || "left"; ctx.fillText(t, x, y); } }
+  if (mark.labels) { ctx.font = "500 24px 'JetBrains Mono', monospace"; ctx.fillStyle = "#3a3a36"; for (const [t, x, y, al] of mark.labels) { ctx.textAlign = al || "left"; ctx.fillText(t, x, y); } }
   return mark.dot ? [mark.dot[0] / W, mark.dot[1] / H] : null;
 }
 
@@ -88,7 +88,7 @@ const FIG = {
           for (let t = T - 1; t >= 0; t--) g.lineTo(X(t), row(i) + h * 0.95 * (S[t][i] / mx));
           g.closePath(); g.fill();
         }
-        return { dot: [X(pk[0]), row(pk[1])], labels: L.syms.map((s, i) => [s, W - 88, row(i) + 5]) };
+        return { dot: [X(pk[0]), row(pk[1])], labels: L.syms.map((s, i) => [s, W - 92, row(i) + 8]) };
       },
       right: `Mean firing ${fix(mean(S.flat()))} Hz. The fastest cell was ${L.syms[pk[1]]} at ${fix(mx)} Hz on ${day(L.t[pk[0]])}. A cell that fires hard enough buys.`,
       src: "fry.frames[].inner · firing rate (Hz) per cell",
