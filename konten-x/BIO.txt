@@ -1,31 +1,133 @@
-MYXOBRAIN · profil X
+MYXOBRAIN · BIO & NARASI X
+==========================
 
-Nama (display name):
-MYXOBRAIN
+Nama (display name):   MYXOBRAIN 🧫
+Handle saran:          @myxobrain / @myxobrain_lab / @myxobrainrh
+Website:               myxobrain.com
 
-Handle saran (cek mana yang masih kosong):
-@myxobrain / @myxobrainrh / @myxobrain_lab
+------------------------------------------------------------
+BIO (pilih satu, semua di bawah 160 karakter)
+------------------------------------------------------------
 
-Bio utama (riset, 139/160):
-Six real organisms, from a slime mold to a 302-neuron worm, run from their published models and paper-trading Robinhood Chain. No AI. $MYXO
+1. HOOK (rekomendasi, 143/160)
+A slime mold redrew Tokyo's railways. A worm runs on all 302 of its real neurons. Now six organisms read the market. No AI. Just biology. $MYXO
 
-Bio alternatif 1 (lab notebook, 131/160):
-A slime mold, a worm, a fish larva, ants, bees and E. coli read the market as food. Rules written first. Every number recomputable.
+2. JUJUR / ANTI-HYPE (143/160)
+We gave the market to things without brains. Slime mold, worm, fish larva, ants, bees, E. coli. Every trade published. Every failure too. $MYXO
 
-Bio alternatif 2 (pendek, 48/160):
-Six minds. No brain required. One market. No AI.
+3. ANGKA (125/160)
+6 organisms. 0 language models. 302 real neurons. 20 papers. One question: can biology beat holding? Lab notebook open. $MYXO
 
-Lokasi:
-inside a petri dish
+4. BERANI (136/160)
+No brain. No AI. No excuses. Six organisms paper-trade Robinhood Chain straight from published science. Every number recomputable. $MYXO
 
-Website:
+5. PENDEK (46/160)
+biology vs. the market. no AI allowed. 🧫 $MYXO
+
+Lokasi (pilih satu):
+inside a petri dish  ·  under the microscope  ·  dish #6, Robinhood Chain
+
+------------------------------------------------------------
+NARASI PENDEK (deskripsi CA / Telegram / DEX Screener)
+------------------------------------------------------------
+
+In 2000, a slime mold with no brain solved a maze. In 2010, it redrew the Tokyo rail network. In 2019, scientists finished mapping every wire in a worm's nervous system.
+
+MYXOBRAIN takes six of these organisms, a slime mold, the worm C. elegans, a zebrafish larva, an ant colony, a bee swarm and E. coli, and runs their published models on the market. Price becomes food. The slime mold grows tubes toward it. The worm smells it. The ants lay trails to it. The bees dance for it.
+
+No language model. No hidden prompt. Just biology, run as math, on 11 Robinhood Chain assets. Rules are written before every run, and every result is published, including the failures. So far, none has beaten holding. We'll keep testing.
+
+$MYXO · myxobrain.com
+
+------------------------------------------------------------
+NARASI PANJANG (thread pembuka / pinned thread)
+------------------------------------------------------------
+
+1/
+A single cell with no neurons once redrew Tokyo's rail network.
+We wanted to know what it would do with the market.
+This is MYXOBRAIN. 🧫🧵
+
+2/
+Six organisms. Six published models.
+🟡 Physarum, the slime mold that finds shortest paths
+🪱 C. elegans, 302 neurons, real 2019 wiring
+🐟 a zebrafish larva
+🐜 an ant colony
+🐝 a bee swarm
+🦠 E. coli
+
+3/
+Each one reads the same 11 assets as food.
+Tubes thicken where flow is. The worm turns toward the smell. Ants lay pheromone. Bees dance until a quorum agrees. E. coli tumbles when things get worse.
+
+4/
+There is no AI here. No language model, no chatbot, no "agent" making it up.
+Every rule comes from a paper, and all 20 papers are linked on the site.
+
+5/
+The rules are written before every run:
+4 folds · 48 settings on past data only · 5 seeds · 0.3% cost per trade · a blind twin with no food · 3 sealed months.
+Four gates. Pass all four or it failed.
+
+6/
+The result so far: 0 passes in 36 runs.
+We publish that anyway. A lab that hides its failures isn't a lab.
+
+7/
+Don't trust us. Press recompute and your browser reruns everything.
+Or in your terminal: npx myxobrain-agent verify
+
+myxobrain.com · $MYXO
+
+------------------------------------------------------------
+BIO TIAP SPECIMEN (untuk caption post per organisme)
+------------------------------------------------------------
+
+🟡 PHYSARUM · "The Engineer"
+One cell. No brain. Redrew Tokyo's railways in 26 hours. Now it grows tubes toward profit and lets the idle ones die.
+
+🪱 C. ELEGANS · "The Nose"
+302 neurons, every one simulated from its real wiring. It smells the market through AWC and ASE, then decides: turn, or run.
+
+🐟 ZEBRAFISH FRY · "The Spiker"
+Eleven cells, one per asset. Fire hard enough and it buys. Go quiet and it sells. It learns the way Hebb said brains learn.
+
+🐜 ANT COLONY · "The Trail"
+No leader, no plan. Trails that lead to food get pheromone. Trails that don't, evaporate. The colony's trails are its portfolio.
+
+🐝 BEE SWARM · "The Vote"
+Scouts dance for what they found. The better the food, the longer the dance. When enough agree, the swarm moves.
+
+🦠 E. COLI · "The Optimist"
+Keeps swimming while things get better. Tumbles when they don't. A memory of a few seconds is all it needs.
+
+------------------------------------------------------------
+CAPTION SIAP PAKAI
+------------------------------------------------------------
+
+Perkenalan (pakai banner atau p01):
+We gave the market to a slime mold, a worm, a fish larva, ants, bees and a bacterium.
+No AI. Just biology.
+The lab opens soon. 🧫
+
+Saat CA keluar (ca-demo.mp4):
+The lab is open. 🧫
+Six organisms, six papers, zero language models.
+Watch them read the market: myxobrain.com
+CA: [CA]
+$MYXO
+
+Penutup harian:
+Another day in the petri dish.
+Still no organism has beaten holding. Still publishing every run.
 myxobrain.com
 
+------------------------------------------------------------
+ASET PROFIL
+------------------------------------------------------------
 Foto profil: myxobrain-x-kit/profile-picture.png
-Banner: myxobrain-x-kit/banner.png (3000x1000, enam specimen berjajar, domain di kanan bawah)
-
-Pinned post: sebelum launch pin p01 (prelaunch/p01.png).
-Setelah CA keluar, pin postingan-ca/ca-demo.mp4 selama 48 jam.
-
-Logo token (latar transparan): myxobrain-x-kit/logo-amber.png
-Ticker yang dipakai di video: $MYXO (kalau ticker berbeda: TICKER='$XYZ' node _tools/render.mjs <scene>, lalu demo.mjs)
+Banner:      myxobrain-x-kit/banner.png (3000x1000)
+Pinned:      sebelum launch pin thread NARASI PANJANG (pakai p01 di tweet 1);
+             setelah CA keluar, pin ca-demo.mp4 selama 48 jam, lalu kembali ke thread.
+Ticker:      $MYXO (ganti kalau ticker berbeda)
