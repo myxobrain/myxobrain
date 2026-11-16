@@ -3,7 +3,7 @@
 // the engine's own per-asset state at each hour. Nothing is generated or random except the dither grain.
 import { day } from "./common.js";
 
-const W = 1200, H = 620;
+const W = 1200, H = 470;
 const fix = (v, d = 1) => (+v).toFixed(d);
 const rng = (seed) => () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
 
@@ -162,12 +162,12 @@ const FIG = {
 };
 
 const NOTE = {
-  physarum: ["FN-01", "Tubes That Follow<br>the Flow", "A single cell with no neurons finds the shortest path through a maze. Tubes that carry flow thicken. Idle tubes fade.", "Nakagaki 2000 · Tero 2007"],
-  worm: ["FN-02", "302 Neurons,<br>Wired as Found", "The first animal whose whole nervous system was mapped. Every curve is a real connection, every dot a neuron.", "White 1986 · Cook 2019"],
-  fry: ["FN-03", "Eleven Cells,<br>Firing", "Nearly every neuron of a larval zebrafish brain can be imaged at once. Here, one model neuron per asset learns by Hebb's rule.", "Ahrens 2013 · Hebb 1949"],
-  ant: ["FN-04", "Trails That<br>Evaporate", "Real ants pick the shorter bridge through pheromone alone. Trails that pay get more. Trails that don't, evaporate.", "Goss 1989 · Dorigo 1997"],
-  bee: ["FN-05", "Dances Toward<br>a Quorum", "Scouts dance longer for better sites. When enough scouts agree on one site, the swarm moves.", "Seeley 1999 · Passino 2006"],
-  ecoli: ["FN-06", "Run, Tumble,<br>Repeat", "A bacterium keeps swimming while things get better and tumbles to a random heading when they don't.", "Berg & Brown 1972"],
+  physarum: ["FN-01", "Tubes That Follow the Flow", "A single cell with no neurons finds the shortest path through a maze. Tubes that carry flow thicken. Idle tubes fade.", "Nakagaki 2000 · Tero 2007"],
+  worm: ["FN-02", "302 Neurons, Wired as Found", "The first animal whose whole nervous system was mapped. Every curve is a real connection, every dot a neuron.", "White 1986 · Cook 2019"],
+  fry: ["FN-03", "Eleven Cells, Firing", "Nearly every neuron of a larval zebrafish brain can be imaged at once. Here, one model neuron per asset learns by Hebb's rule.", "Ahrens 2013 · Hebb 1949"],
+  ant: ["FN-04", "Trails That Evaporate", "Real ants pick the shorter bridge through pheromone alone. Trails that pay get more. Trails that don't, evaporate.", "Goss 1989 · Dorigo 1997"],
+  bee: ["FN-05", "Dances Toward a Quorum", "Scouts dance longer for better sites. When enough scouts agree on one site, the swarm moves.", "Seeley 1999 · Passino 2006"],
+  ecoli: ["FN-06", "Run, Tumble, Repeat", "A bacterium keeps swimming while things get better and tumbles to a random heading when they don't.", "Berg & Brown 1972"],
 };
 
 export function fieldNotes(el, L, C) {
