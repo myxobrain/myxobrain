@@ -699,3 +699,18 @@ Gambar: _src/product/specimen-worm.png
 The worm's page: food in, 302 neurons, a portfolio out.
 
 Every number on it can be recomputed in your browser.
+
+------------------------------------------------------------
+BURN POST  (post/21-burned.png · re-render right after each burn: node konten-x/_src/posts.mjs b01)
+The numbers on the image are read from myxobrain.com/api/token when it renders (everything in the dead address).
+
+Burned. 🔥
+
+[AMOUNT] $MYXO just went to the dead address. Nobody holds the key, so it never comes back.
+[PCT]% of the supply is gone for good.
+
+Tx: [TX LINK]
+Every burn is on the ledger: myxobrain.com
+
+CA: 0xd0AD95EC5e73d6c858F99cA0b4CC7D75357a88E7
+$MYXO
