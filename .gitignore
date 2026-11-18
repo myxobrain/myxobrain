@@ -1,4 +1,7 @@
 deploy/dist/
+studio/data/
+studio/node_modules/
+studio/.env
 .DS_Store
 # X kit: rendered media stay local (re-render with konten-x/_src)
 konten-x/pre/

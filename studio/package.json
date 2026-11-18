@@ -1,0 +1,10 @@
+{
+  "name": "myxobrain-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Owner panel for myxobrain.com: set the $MYXO CA, buyback-and-burn by hand",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node --env-file-if-exists=.env server.mjs" },
+  "dependencies": { "ethers": "6.17.0" }
+}

@@ -69,6 +69,8 @@ The exact input files are in `data/`: `hist-1h.json` (hourly prices), `flow-1h.j
 - `server/live/`: the LIVE-001 forward test (`register.mjs` locked it, `forward.mjs` runs hourly)
 - `_src/ui-preview/map/`: the site (`index.html` + `term.js` home, `ring.js` the 3D specimen, `term.css` the terminal skin)
 - `deploy/build.sh`: builds it with the engine and raw data inside; `.github/workflows/pages.yml` publishes it on every push to `main`
+- `studio/`: the owner panel at `/studio` (set the $MYXO CA, buyback-and-burn by hand) and the public `/api/token` feed; see `studio/README.md`
+- `konten-x/` and `brand/`: the X content kit and brand files
 
 ## Not proven here
 

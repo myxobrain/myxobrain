@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MYXOBRAIN · studio</title><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/brand/icon-32.png" sizes="32x32" type="image/png"><meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070707;--panel:#0d0d0b;--fg:#EDEDE7;--dim:#9A9A92;--faint:#55554f;--line:#262622;--sig:#FFB000;--bad:#FF7A66;--sans:"JetBrains Mono",ui-monospace,Menlo,monospace;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--fg);font:400 13.5px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--sig)}button,input{font:inherit;color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:28px 18px 60px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);letter-spacing:.12em;color:var(--fg);text-decoration:none}.logo img{width:auto;height:20px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:0;padding:22px;margin-bottom:16px}
+h2{margin:0 0 4px;font-size:15px;font-weight:500;color:var(--sig)}h2::before{content:"> "}.sub{margin:0 0 16px;color:var(--dim);font-size:13.5px}
+label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:12px 0 6px}
+input{width:100%;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:0;padding:12px 13px;outline:0;font-family:var(--mono);font-size:13.5px}input:focus{border-color:var(--sig)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.row>*{flex:1;min-width:160px}.row>[style*="flex:0"]{flex:0 0 auto;min-width:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border:0;border-radius:0;background:var(--sig);color:#070707;font-weight:500;letter-spacing:.04em;cursor:pointer;white-space:nowrap}
+.btn.sig{background:var(--sig)}.btn.ghost{background:none;border:1px solid var(--line);color:var(--fg)}.btn:disabled{opacity:.45;cursor:default}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:6px 0 2px}.kv div{border:1px solid var(--line);border-radius:0;padding:12px 14px}.kv b{display:block;font-family:var(--mono);font-size:16px;font-weight:500;word-break:break-all}.kv span{font-size:12px;color:var(--dim)}
+.msg{font-family:var(--mono);font-size:12.5px;margin-top:10px;min-height:18px;word-break:break-word}.msg.ok{color:var(--sig)}.msg.bad{color:var(--bad)}
+table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px}td,th{padding:9px 6px;border-top:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--dim);font-weight:400}
+.st{padding:2px 8px;border-radius:6px;border:1px solid var(--line)}.st.done{color:#5BD68A;border-color:#5BD68A}.st.failed{color:var(--bad)}
+.scroll{overflow-x:auto}
+#gate{max-width:420px;margin:12vh auto 0}
+.note{font-size:12.5px;color:var(--dim);margin:10px 0 0}
+</style></head><body>
+<div class="wrap">
+<header><a class="logo" href="/"><img src="/brand/logo.png" alt="" class="mark" style="height:24px">MYXOBRAIN<span style="color:var(--sig)">//STUDIO</span></a><span class="tag">owner only</span></header>
+
+<div id="gate" class="card"><h2>Studio</h2><p class="sub">Owner only. The key is in studio/data/burn/secrets.json on the server, or STUDIO_KEY in studio/.env.</p>
+<form id="gf"><label for="key">Studio key</label><input id="key" type="password" autocomplete="current-password"><div style="margin-top:14px"><button class="btn">Unlock</button></div><div class="msg bad" id="gm"></div></form></div>
+
+<div id="app" hidden>
+  <section class="card"><h2>01 · Token</h2><p class="sub">The CA shows on myxobrain.com (header and the burn ledger) with a copy button and a Buy on Pons link within a minute of saving. Leave it empty to hide it.</p>
+    <form id="tf"><div class="row"><div style="flex:3"><label for="ca">Contract address</label><input id="ca" placeholder="0x…" spellcheck="false"></div><div><label for="sym">Ticker</label><input id="sym" maxlength="13"></div></div>
+    <div style="margin-top:14px"><button class="btn">Save token</button></div><div class="msg" id="tm"></div></form></section>
+
+  <section class="card"><h2>02 · Buyback wallet</h2><p class="sub">Use a fresh wallet that only holds the ETH for buybacks. The key is encrypted on the server and never shown again. Never paste your main wallet.</p>
+    <div class="kv" id="wkv"></div>
+    <form id="wf"><label for="pk">Private key of the buyback wallet</label><input id="pk" type="password" autocomplete="off" spellcheck="false" placeholder="0x…">
+    <div class="row" style="margin-top:14px"><div style="flex:0"><button class="btn">Save wallet</button></div><div style="flex:0"><button class="btn ghost" type="button" id="wrm">Remove wallet</button></div></div><div class="msg" id="wm"></div></form></section>
+
+  <section class="card"><h2>03 · Buyback and burn</h2><p class="sub">Enter dollars. The panel pays the matching ETH at the live price, buys the token (Pons curve before graduation, Uniswap v4 after), then sends exactly what it bought to the dead address. Two real transactions.</p>
+    <div class="kv" id="bkv"></div>
+    <form id="bf"><div class="row"><div><label for="usd">Dollars to spend</label><input id="usd" inputmode="decimal" placeholder="10"></div><div style="flex:0"><button class="btn sig" id="bgo">Buy back and burn</button></div></div><div class="note" id="bq"></div><div class="msg" id="bm"></div></form></section>
+
+  <section class="card"><h2>04 · Burn supply</h2><p class="sub">Burns tokens the burn wallet already holds, with no buy. Send the supply you want to burn to the burn wallet first, then enter a dollar amount or press Max to burn all of it. One real transaction.</p>
+    <div class="kv" id="skv"></div>
+    <form id="sf"><div class="row"><div><label for="susd">Dollars of supply to burn</label><input id="susd" inputmode="decimal" placeholder="25"></div><div style="flex:0"><button class="btn ghost" type="button" id="smax">Max</button></div><div style="flex:0"><button class="btn sig" id="sgo">Burn supply</button></div></div><div class="note" id="sq"></div><div class="msg" id="sm"></div></form>
+    <p class="note">Recovery: if a buyback bought but did not burn, <button class="btn ghost" type="button" id="held" style="min-height:34px;padding:0 14px;font-size:13px">burn what the wallet holds</button></p></section>
+
+  <section class="card"><h2>05 · History</h2><p class="sub">Every step is saved before the next wait, so a restart never loses a hash. Finished burns show on the site.</p><div class="scroll"><table id="ht"></table></div></section>
+  <section class="card"><h2>Log</h2><div class="scroll"><table id="lt"></table></div></section>
+</div>
+</div>
+<script>
+const $=(i)=>document.getElementById(i),esc=(s)=>String(s??"").replace(/[&<>"]/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let KEY=sessionStorage.myxoKey||"",S=null;
+const api=async(p,o={})=>{const r=await fetch("/api/studio"+p,{...o,headers:{"x-studio-key":KEY,"content-type":"application/json"}});const j=await r.json().catch(()=>({}));if(!r.ok)throw Object.assign(new Error(j.error||"Request failed"),{status:r.status});return j};
+const say=(id,t,ok)=>{const m=$(id);m.textContent=t;m.className="msg "+(ok?"ok":"bad")};
+const usd=(v)=>v==null?"—":"$"+Number(v).toLocaleString("en-US",{maximumFractionDigits:2});
+const num=(v,d=4)=>v==null?"—":Number(v).toLocaleString("en-US",{maximumFractionDigits:d});
+const tx=(h)=>h?`<a href="${S.explorer}/tx/${esc(h)}" target="_blank" rel="noopener">${esc(h.slice(0,10))}…</a>`:"—";
+function render(){const c=S.config;if(document.activeElement!==$("ca"))$("ca").value=c.ca||"";if(document.activeElement!==$("sym"))$("sym").value=c.symbol||"";
+ $("wkv").innerHTML=S.wallet?[[S.wallet,"buyback wallet"],[num(S.walletEth,5)+" ETH","balance"],[num(S.spendableEth,5)+" ETH","spendable (gas kept back)"],[S.tokenBal!=null?num(S.tokenBal,0)+" $"+esc(c.symbol):"—","token held"]].map(([b,s])=>`<div><b>${esc(b)}</b><span>${s}</span></div>`).join(""):`<div><b>none</b><span>no wallet saved yet</span></div>`;
+  $("bkv").innerHTML=[[usd(S.spendableUsd),"the wallet can spend"],[num(S.totals.bought,0)+" $"+esc(c.symbol),"burned by buybacks"],[`${num(S.totals.boughtEth,4)} ETH`+(S.ethUsd?` (≈ ${usd(Number(S.totals.boughtEth)*S.ethUsd)} now)`:""),"spent on buybacks"],[`${usd(S.todayUsd)} of ${usd(S.dayUsd)}`,"used in the last 24 h"],[usd(S.maxUsd),"max per buyback"],[S.onPons===false?"not on Pons":S.phase==null?"—":S.phase===0?"Pons curve":"Uniswap v4","where it buys"]].map(([b,s])=>`<div><b>${esc(b)}</b><span>${s}</span></div>`).join("");
+ $("skv").innerHTML=[[S.tokenBal!=null?num(S.tokenBal,0)+" $"+esc(c.symbol):"—","in the burn wallet"],[usd(S.tokenBalUsd),"worth now"],[S.tokenPriceUsd?"$"+Number(S.tokenPriceUsd).toPrecision(3):"—","price per token"],[num(S.totals.supply,0)+" $"+esc(c.symbol),"burned from supply"]].map(([b,s])=>`<div><b>${esc(b)}</b><span>${s}</span></div>`).join("");
+ quote();
+ if(S.error)say("bm","Chain read failed: "+S.error,false);
+ $("ht").innerHTML="<tr><th>when</th><th>type</th><th>status</th><th>dollars</th><th>burned</th><th>buy</th><th>burn</th></tr>"+(S.history.map(h=>`<tr><td>${esc(h.t.slice(0,16).replace("T"," "))}</td><td>${esc(h.kind||"buyback")}</td><td><span class="st ${esc(h.status)}">${esc(h.status)}</span></td><td>${h.usd!=null?usd(h.usd):"—"}</td><td>${h.burned?num(h.burned,0):"—"}</td><td>${tx(h.buyTx)}</td><td>${tx(h.burnTx)}</td></tr>`).join("")||'<tr><td colspan="7" style="color:var(--dim)">No burns yet.</td></tr>');
+ $("lt").innerHTML=S.logs.map(l=>`<tr><td style="white-space:nowrap">${esc(l.t.slice(5,19).replace("T"," "))}</td><td style="color:${l.level==="error"?"var(--bad)":l.level==="ok"?"var(--sig)":"var(--dim)"}">${esc(l.level)}</td><td>${esc(l.text)}</td></tr>`).join("")||'<tr><td style="color:var(--dim)">Nothing yet.</td></tr>';}
+async function load(){S=await api("/status");render()}
+async function enter(){try{await load();$("gate").hidden=true;$("app").hidden=false;setInterval(()=>load().catch(()=>{}),20000)}catch(e){sessionStorage.removeItem("myxoKey");$("gm").textContent=e.message}}
+$("gf").onsubmit=(e)=>{e.preventDefault();KEY=$("key").value.trim();sessionStorage.myxoKey=KEY;enter()};if(KEY)enter();
+$("tf").onsubmit=async(e)=>{e.preventDefault();try{const r=await api("/token",{method:"POST",body:JSON.stringify({ca:$("ca").value.trim(),symbol:$("sym").value.trim()})});say("tm",r.warn||(r.config.ca?"Saved. The CA is live on myxobrain.com within a minute.":"Saved. The CA is hidden on the site."),!r.warn);load()}catch(x){say("tm",x.message,false)}};
+$("wf").onsubmit=async(e)=>{e.preventDefault();const pk=$("pk").value.trim();$("pk").value="";try{const r=await api("/wallet",{method:"POST",body:JSON.stringify({privateKey:pk})});say("wm","Saved: "+r.address,true);load()}catch(x){say("wm",x.message,false)}};
+$("wrm").onclick=async()=>{if(!confirm("Remove the buyback wallet key from the server?"))return;try{await api("/wallet",{method:"DELETE"});say("wm","Removed.",true);load()}catch(x){say("wm",x.message,false)}};
+// live previews: dollars to ETH for the buyback, dollars to tokens for the supply burn
+let MAXED=false;
+function quote(){if(!S)return;const b=+$("usd").value,s=$("susd").value.trim();
+ $("bq").textContent=b>0&&S.ethUsd?`≈ ${(b/S.ethUsd).toFixed(6)} ETH at $${Math.round(S.ethUsd).toLocaleString("en-US")} per ETH`:"";
+ $("sq").textContent=MAXED&&S.tokenBal?`All ${num(S.tokenBal,0)} $${S.config.symbol} in the wallet (≈ ${usd(S.tokenBalUsd)})`:(+s>0&&S.tokenPriceUsd?`≈ ${num(+s/S.tokenPriceUsd,0)} $${S.config.symbol}`:"")}
+$("usd").oninput=quote;$("susd").oninput=()=>{MAXED=false;quote()};
+$("smax").onclick=()=>{MAXED=true;$("susd").value=S&&S.tokenBalUsd!=null?String(S.tokenBalUsd):"";quote()};
+$("bf").onsubmit=async(e)=>{e.preventDefault();const u=$("usd").value.trim();if(!u)return;if(!confirm(`Spend $${u} of ETH on $${S.config.symbol} and burn everything it buys? This sends two real transactions.`))return;const b=$("bgo");b.disabled=true;b.textContent="Working…";say("bm","Buying, then burning. Keep this tab open.",true);
+ try{const r=await api("/buyback",{method:"POST",body:JSON.stringify({usd:u})});say("bm",`Burned ${num(r.burned,0)} $${S.config.symbol} for $${r.usd}. Buy ${r.buyTx.slice(0,10)}…, burn ${r.burnTx.slice(0,10)}…`,true);$("usd").value=""}catch(x){say("bm",x.message,false)}finally{b.disabled=false;b.textContent="Buy back and burn";load()}};
+$("sf").onsubmit=async(e)=>{e.preventDefault();const u=MAXED?"max":$("susd").value.trim();if(!u)return;const what=MAXED?`ALL ${num(S.tokenBal,0)} $${S.config.symbol} in the burn wallet`:`$${u} of $${S.config.symbol}`;
+ if(!confirm(`Burn ${what} from supply? Tokens sent to the dead address can never come back.`))return;if(MAXED&&!confirm("Last check: burn everything the burn wallet holds?"))return;
+ const b=$("sgo");b.disabled=true;b.textContent="Burning…";say("sm","Burning. Keep this tab open.",true);
+ try{const r=await api("/supply",{method:"POST",body:JSON.stringify({usd:u})});say("sm",`Burned ${num(r.burned,0)} $${S.config.symbol} (≈ $${r.usd}). Tx ${r.burnTx.slice(0,10)}…`,true);$("susd").value="";MAXED=false}catch(x){say("sm",x.message,false)}finally{b.disabled=false;b.textContent="Burn supply";load()}};
+$("held").onclick=async()=>{if(!confirm("Burn every token the buyback wallet holds?"))return;try{const r=await api("/burn-held",{method:"POST"});say("bm",`Burned ${num(r.burned,0)} held tokens.`,true)}catch(x){say("bm",x.message,false)}load()};
+</script></body></html>

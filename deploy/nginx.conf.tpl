@@ -1,7 +1,8 @@
 # nginx · __DOMAIN__ (MYXOBRAIN, static) over HTTPS, installed after
 #   certbot certonly --webroot -w /var/www/__DOMAIN__ -d __DOMAIN__ -d www.__DOMAIN__
 # The SNI router on :443 (stream block in nginx.conf) forwards every unlisted name to 127.0.0.1:8443 with PROXY protocol.
-# The site is the output of deploy/build.sh, rsynced to /var/www/__DOMAIN__/html. No app server.
+# The site is the output of deploy/build.sh, rsynced to /var/www/__DOMAIN__/html. /studio and /api/ go to the studio
+# server (studio/server.mjs, pm2 app myxobrain-studio on 127.0.0.1:5770): the owner panel and the public $MYXO token/burn feed.
 server {
     listen 127.0.0.1:8443 ssl proxy_protocol;
     server_name __DOMAIN__ www.__DOMAIN__;
@@ -14,6 +15,11 @@ server {
 
     root /var/www/__DOMAIN__/html;
     index index.html;
+
+
+    # owner panel and the $MYXO token feed (a buyback waits for two receipts, so allow a few minutes)
+    location = /studio { proxy_pass http://127.0.0.1:5770; include /var/www/__DOMAIN__/studio-proxy.conf; }
+    location /api/ { proxy_pass http://127.0.0.1:5770; include /var/www/__DOMAIN__/studio-proxy.conf; }
 
     # data files must 404 when missing (e.g. live/live.json before the forward test publishes), never fall back to the page
     location ~* \.(json|ots)$ {

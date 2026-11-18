@@ -3,6 +3,7 @@
 import { BOOKS, EXPS, league, pct, day, weights, stats, SOURCES, INNER } from "./common.js";
 import { createRing } from "./ring.js";
 import { fieldNotes } from "./field.js";
+import { token } from "./token.js";
 
 const $ = (id) => document.getElementById(id);
 const ORG = Object.keys(BOOKS).filter((k) => BOOKS[k].kind === "org");
@@ -244,3 +245,4 @@ $("srcBox").innerHTML = SRC.map(([a, b]) => `<div>${a.padEnd(14, ".")} ${b}</div
 if (site.repo) { $("repo").href = site.repo; $("repo").target = "_blank"; document.querySelectorAll(".ghLink").forEach((a) => (a.href = site.repo)); }
 
 await load(want && EX.find((e) => e.id === want) ? want : "EXP-004");
+token();   // $MYXO CA and burns, when the studio server is there
