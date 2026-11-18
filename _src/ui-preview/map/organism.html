@@ -29,7 +29,7 @@ header a{color:var(--dim);text-decoration:none;font:12px "JetBrains Mono"}header
 .based{padding:22px;border-bottom:1px solid var(--line)}.based .rs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;margin-top:8px}@media(max-width:900px){.based .rs{grid-template-columns:1fr}}
 .ref{padding:12px 0;border-top:1px solid var(--line)}.ref .rt{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;line-height:1.3}.ref .rt:hover{text-decoration:underline}.ref .rm{font:11px "JetBrains Mono";color:var(--dim);margin-top:4px}.ref p{color:#B4B4AC;font-size:12.5px;margin:6px 0 0}.ref .rl{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}.ref .rl a{font:11px "JetBrains Mono";color:var(--dim);overflow-wrap:anywhere}.ref .rl a:hover{color:var(--ink)}
 .lower{display:grid;grid-template-columns:1.2fr 1fr;border-bottom:1px solid var(--line)}
-.lower>div{padding:22px;border-right:1px solid var(--line)}.lower>div:last-child{border-right:0}
+.lower>div{padding:22px;border-right:1px solid var(--line);min-width:0}.lower>div table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}.lower>div:last-child{border-right:0}
 .k{font:10px "JetBrains Mono";letter-spacing:.14em;color:var(--dim);text-transform:uppercase;margin-bottom:8px}
 h2{font-size:20px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
 p{color:#B4B4AC;font-size:14px;margin-bottom:10px;max-width:720px}
@@ -47,7 +47,7 @@ footer{position:sticky;bottom:0;background:rgba(7,7,7,.94);backdrop-filter:blur(
 footer button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#000;display:grid;place-items:center;font-size:13px}
 #tl{width:100%;height:46px;cursor:ew-resize;display:block}
 @media(max-width:600px){.lab:not(#mid){display:none}#mid{white-space:normal;width:86%;text-align:center;line-height:1.5}.brain{height:min(78vh,560px)}.exps{overflow-x:auto;max-width:100%;scrollbar-width:none}.exps a{white-space:nowrap}header{gap:10px}.verify table th:nth-child(2),.verify table td:nth-child(2){font-size:11px}}
-@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.lower,.notes{grid-template-columns:1fr}.lower>div{border-right:0;border-bottom:1px solid var(--line)}header{padding:12px 16px}}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.lower,.notes{grid-template-columns:minmax(0,1fr)}.lower>div{border-right:0;border-bottom:1px solid var(--line)}header{padding:12px 16px}}
 </style>
 <link rel="stylesheet" href="term.css"></head><body>
 <header><a href="./" id="back" style="display:flex;align-items:center;gap:8px"><img src="brand/logo.png" alt="MYXOBRAIN" width="20" height="20" style="display:block">← map</a><a href="live">live</a><a href="data">data & method</a><div class="who"><h1 id="name"></h1><span id="lat"></span></div><span class="chip" id="exp"></span><span class="chip" id="verdict"></span><div class="exps" id="exps"></div><span class="date" id="date"></span></header>

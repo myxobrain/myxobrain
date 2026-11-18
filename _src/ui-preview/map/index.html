@@ -149,8 +149,20 @@ footer a{color:#070707;font-weight:400}footer a:hover{color:#070707;text-decorat
 .burnstats div{padding:14px 16px;border-right:1px solid var(--line)}.burnstats div:last-child{border-right:0}
 .burnstats b{display:block;font-size:22px;font-weight:500;color:var(--acc)}.burnstats span{font-size:11px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
 .burnlog{width:100%;border-collapse:collapse;margin-top:12px;font-size:12px}.burnlog td,.burnlog th{padding:8px 6px;border-top:1px solid var(--line);text-align:left}.burnlog th{color:var(--dim);font-weight:400}
-.burnlog a{color:var(--acc)}
+.burnlog a{color:var(--acc)}#burnLede a{word-break:break-all}
 @media(max-width:700px){.cachip code{display:none}.burnstats{grid-template-columns:repeat(2,minmax(0,1fr))}.burnstats div:nth-child(2){border-right:0}.burnstats div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* narrow screens: phones and wallet sidebars (OKX, MetaMask, about 320-420 px) */
+@media(max-width:480px){.top{gap:10px;padding:0 10px}.top .logo .term{display:none}.cachip{gap:6px}.cachip .sym,.cachip code{display:none}.cachip button,.cachip a{padding:3px 7px}
+ .lg .row{grid-template-columns:20px minmax(0,1fr) 54px 34px 44px;gap:5px}.lg .row>*{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .burnlog{font-size:11px}.burnlog td,.burnlog th{padding:7px 4px;white-space:nowrap}}
+@media(max-width:360px){.top .logo{font-size:12px;letter-spacing:.04em}.exps button{padding:6px 7px}}
+
+/* when the bar is too narrow for logo, tabs, CA and links on one line, the experiment tabs get their own row */
+@media(max-width:1279px){.top{flex-wrap:wrap;height:auto;min-height:46px;row-gap:0;padding-top:0;padding-bottom:0}.top>.logo,.top>.cachip,.top>nav.mn{height:46px}
+ .top .exps{order:3;flex:1 1 100%;margin:0 -20px;padding:0 20px 8px;border-top:1px solid var(--line);padding-top:8px}.cachip{margin-left:auto}}
+@media(max-width:700px){.top .exps{margin:0 -12px;padding:8px 12px}}
+@media(max-width:480px){.top .exps{margin:0 -10px;padding:8px 10px}.lg .row>*{text-overflow:clip}}
 </style></head><body>
 
 <div class="top">

@@ -14,7 +14,7 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 h2{margin:0 0 4px;font-size:15px;font-weight:500;color:var(--sig)}h2::before{content:"> "}.sub{margin:0 0 16px;color:var(--dim);font-size:13.5px}
 label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:12px 0 6px}
 input{width:100%;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:0;padding:12px 13px;outline:0;font-family:var(--mono);font-size:13.5px}input:focus{border-color:var(--sig)}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.row>*{flex:1;min-width:160px}.row>[style*="flex:0"]{flex:0 0 auto;min-width:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.row>*{flex:1 1 180px;min-width:0}.row>.fit{flex:0 0 auto}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border:0;border-radius:0;background:var(--sig);color:#070707;font-weight:500;letter-spacing:.04em;cursor:pointer;white-space:nowrap}
 .btn.sig{background:var(--sig)}.btn.ghost{background:none;border:1px solid var(--line);color:var(--fg)}.btn:disabled{opacity:.45;cursor:default}
 .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:6px 0 2px}.kv div{border:1px solid var(--line);border-radius:0;padding:12px 14px}.kv b{display:block;font-family:var(--mono);font-size:16px;font-weight:500;word-break:break-all}.kv span{font-size:12px;color:var(--dim)}
@@ -24,6 +24,7 @@ table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px
 .scroll{overflow-x:auto}
 #gate{max-width:420px;margin:12vh auto 0}
 .note{font-size:12.5px;color:var(--dim);margin:10px 0 0}
+@media(max-width:560px){.wrap{padding:20px 12px 48px}.card{padding:16px}.row>*,.row>.fit{flex:1 1 100% !important}.row>.fit .btn{width:100%}.kv{grid-template-columns:repeat(2,minmax(0,1fr))}header .tag{display:none}}
 </style></head><body>
 <div class="wrap">
 <header><a class="logo" href="/"><img src="/brand/logo.png" alt="" class="mark" style="height:24px">MYXOBRAIN<span style="color:var(--sig)">//STUDIO</span></a><span class="tag">owner only</span></header>
@@ -39,15 +40,15 @@ table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px
   <section class="card"><h2>02 · Buyback wallet</h2><p class="sub">Use a fresh wallet that only holds the ETH for buybacks. The key is encrypted on the server and never shown again. Never paste your main wallet.</p>
     <div class="kv" id="wkv"></div>
     <form id="wf"><label for="pk">Private key of the buyback wallet</label><input id="pk" type="password" autocomplete="off" spellcheck="false" placeholder="0x…">
-    <div class="row" style="margin-top:14px"><div style="flex:0"><button class="btn">Save wallet</button></div><div style="flex:0"><button class="btn ghost" type="button" id="wrm">Remove wallet</button></div></div><div class="msg" id="wm"></div></form></section>
+    <div class="row" style="margin-top:14px"><div class="fit"><button class="btn">Save wallet</button></div><div class="fit"><button class="btn ghost" type="button" id="wrm">Remove wallet</button></div></div><div class="msg" id="wm"></div></form></section>
 
   <section class="card"><h2>03 · Buyback and burn</h2><p class="sub">Enter dollars. The panel pays the matching ETH at the live price, buys the token (Pons curve before graduation, Uniswap v4 after), then sends exactly what it bought to the dead address. Two real transactions.</p>
     <div class="kv" id="bkv"></div>
-    <form id="bf"><div class="row"><div><label for="usd">Dollars to spend</label><input id="usd" inputmode="decimal" placeholder="10"></div><div style="flex:0"><button class="btn sig" id="bgo">Buy back and burn</button></div></div><div class="note" id="bq"></div><div class="msg" id="bm"></div></form></section>
+    <form id="bf"><div class="row"><div><label for="usd">Dollars to spend</label><input id="usd" inputmode="decimal" placeholder="10"></div><div class="fit"><button class="btn sig" id="bgo">Buy back and burn</button></div></div><div class="note" id="bq"></div><div class="msg" id="bm"></div></form></section>
 
   <section class="card"><h2>04 · Burn supply</h2><p class="sub">Burns tokens the burn wallet already holds, with no buy. Send the supply you want to burn to the burn wallet first, then enter a dollar amount or press Max to burn all of it. One real transaction.</p>
     <div class="kv" id="skv"></div>
-    <form id="sf"><div class="row"><div><label for="susd">Dollars of supply to burn</label><input id="susd" inputmode="decimal" placeholder="25"></div><div style="flex:0"><button class="btn ghost" type="button" id="smax">Max</button></div><div style="flex:0"><button class="btn sig" id="sgo">Burn supply</button></div></div><div class="note" id="sq"></div><div class="msg" id="sm"></div></form>
+    <form id="sf"><div class="row"><div><label for="susd">Dollars of supply to burn</label><input id="susd" inputmode="decimal" placeholder="25"></div><div class="fit"><button class="btn ghost" type="button" id="smax">Max</button></div><div class="fit"><button class="btn sig" id="sgo">Burn supply</button></div></div><div class="note" id="sq"></div><div class="msg" id="sm"></div></form>
     <p class="note">Recovery: if a buyback bought but did not burn, <button class="btn ghost" type="button" id="held" style="min-height:34px;padding:0 14px;font-size:13px">burn what the wallet holds</button></p></section>
 
   <section class="card"><h2>05 · History</h2><p class="sub">Every step is saved before the next wait, so a restart never loses a hash. Finished burns show on the site.</p><div class="scroll"><table id="ht"></table></div></section>
