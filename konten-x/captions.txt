@@ -6,18 +6,18 @@ Write the $MYXO contract address ONLY in the caption, never on an image. Paste i
 Every number (returns, gates): check myxobrain.com or `npx myxobrain-agent` the day you post.
 
 Posting order
-  Pre-launch:   one post a day, p01 to p06, plus MYXO PAPER research cards (POSTS.txt, R01 to R08) in between.
-                Pin p01 until launch.
-  Launch day:   postingan-ca/ca-demo.mp4 first, pin it for 48 hours. a01 the same evening.
-  After launch: 4-6 posts a day. Mix: 1-2 afterlaunch images (a02-a20), 1 video from video/, 1-2 research cards (POSTS.txt).
+  Pre-launch:   one post a day, p01 to p06, plus MYXO PAPER cards from paper/ (R01 to R08) in between.
+                Pin pre/01-six-minds-no-ai.png until launch.
+  Launch day:   video/myxobrain-ca.mp4 first, pin it for 48 hours. post/01-myxo-is-live.png the same evening.
+  After launch: 4-6 posts a day. Mix: 1-2 images from post/, 1 video from video/, 1-2 MYXO PAPER cards from paper/ (captions at the bottom of this file).
                 Suggested order below. Each specimen video goes the same day as its research cards.
-  Milestones:   paydex/paydex-20k.mp4 when market cap reaches $20K and the DEX Screener profile is paid.
-                burn/burn-all-supply.mp4 right after the dev wallet burns its whole supply, with the tx link.
+  Milestones:   video/myxobrain-dex.mp4 when market cap reaches $20K and the DEX Screener profile is paid.
+                video/myxobrain-burn.mp4 right after the dev wallet burns its whole supply, with the tx link.
 
 
-===== PRE-LAUNCH (prelaunch/) =====
+===== PRE-LAUNCH (folder pre/, one a day, no CA) =====
 
-p01.png · teaser (pin)
+pre/01-six-minds-no-ai.png · teaser (pin)
 Six minds. No AI.
 
 A slime mold, a worm, a fish larva, ants, bees and a bacterium, each run as the model biologists published for it, are about to read the market.
@@ -25,7 +25,7 @@ A slime mold, a worm, a fish larva, ants, bees and a bacterium, each run as the 
 myxobrain.com
 
 ---
-p02.png · physarum
+pre/02-biology-solved-routing.png · physarum
 A single cell with no neurons redrew Tokyo's rail network.
 
 In 2010 a slime mold, given oat flakes placed like the cities around Tokyo, grew a network comparable to the real railway.
@@ -33,13 +33,13 @@ In 2010 a slime mold, given oat flakes placed like the cities around Tokyo, grew
 Soon it gets eleven assets instead. (Tero et al., Science 2010)
 
 ---
-p03.png · the worm
+pre/03-302-neurons.png · the worm
 302 neurons. Every one simulated.
 
 C. elegans was the first animal whose whole nervous system was mapped. MYXOBRAIN runs it on the real 2019 connectome.
 
 ---
-p04.png · the method
+pre/04-rules-first.png · the method
 Rules first. Results second.
 
 Four walk-forward folds. 48 settings, chosen on past data only. Five seeds. 0.3% cost on every trade. Four gates to pass.
@@ -47,13 +47,13 @@ Four walk-forward folds. 48 settings, chosen on past data only. Five seeds. 0.3%
 All written down before the run.
 
 ---
-p05.png · the control
+pre/05-the-blind-twin.png · the control
 Every mind has a blind twin.
 
 The same organism with no food runs beside it. If the twin does as well, the food isn't doing anything, and you'll see that too.
 
 ---
-p06.png · soon
+pre/06-the-lab-opens-soon.png · soon
 The lab opens soon.
 
 Six organisms. Eleven Robinhood Chain assets. Every number recomputable.
@@ -63,7 +63,7 @@ myxobrain.com
 
 ===== LAUNCH DAY =====
 
-postingan-ca/ca-demo.mp4 · the CA post (pin for 48h)
+video/myxobrain-ca.mp4 · the CA post (pin for 48h)
 $MYXO is live on Robinhood Chain.
 
 Six models of real organisms, from a slime mold to a 302-neuron worm, read the market as food. Click any of them on the site and watch the same 302 particles become its mind.
@@ -73,7 +73,7 @@ CA: [CA]
 myxobrain.com · npx myxobrain-agent
 
 ---
-a01.png · the lab is open (same evening)
+post/01-myxo-is-live.png · the lab is open (same evening)
 The lab is open.
 
 $MYXO: six minds, one market, every rule written before the run.
@@ -82,15 +82,15 @@ CA: [CA]
 myxobrain.com
 
 
-===== AFTER LAUNCH (afterlaunch/ and video/) =====
+===== AFTER LAUNCH (folder post/ and video/) =====
 
-a02.png · the specimens
+post/02-six-minds-six-papers.png · the specimens
 Six minds, six papers.
 
 Every organism on myxobrain.com comes with the paper that described it and the line of code that uses it.
 
 ---
-video/morph.mp4 · the six
+video/myxobrain-morph.mp4 · the six
 One particle cloud, six minds.
 
 Worm, slime mold, fish larva, ants, bees, E. coli. Each shape is that organism's real state per asset, straight from the engine.
@@ -98,155 +98,155 @@ Worm, slime mold, fish larva, ants, bees, E. coli. Each shape is that organism's
 myxobrain.com
 
 ---
-a03.png · physarum
+post/03-physarum.png · physarum
 The blob that redrew Tokyo now reads 11 assets.
 
 Tubes that carry flow thicken. Idle tubes fade. (Tero, Kobayashi & Nakagaki, 2007)
 
 ---
-video/specimen-physarum.mp4
+video/myxobrain-specimen-physarum.mp4
 Specimen 01: Physarum polycephalum.
 
 No neurons. One cell. It solved a maze in 2000 and redrew Tokyo's railway in 2010. In MYXOBRAIN, the market is its food.
 
 ---
-a04.png · the worm
+post/04-the-worm.png · the worm
 The market goes in through the nose.
 
 Food per asset drives the worm's smell neurons, AWC and ASE. The real wiring decides: turn or run.
 
 ---
-video/specimen-worm.mp4
+video/myxobrain-specimen-worm.mp4
 Specimen 02: Caenorhabditis elegans.
 
 302 neurons, the first nervous system ever fully mapped. Every neuron simulated, on the Cook et al. 2019 connectome.
 
 ---
-a05.png · the fry
+post/05-the-fry.png · the fry
 Eleven cells, one per asset.
 
 A cell that fires hard enough buys. A silent cell sells. The synapses learn by Hebb's rule.
 
 ---
-video/specimen-fry.mp4
+video/myxobrain-specimen-fry.mp4
 Specimen 03: the zebrafish larva.
 
 A brain you can watch whole. In MYXOBRAIN it is 11 spiking cells, and in EXP-004 it came closest of all six: 3 of 4 gates.
 
 ---
-a06.png · the ants
+post/06-the-ants.png · the ants
 Trails to profit get pheromone.
 
 Unused trails evaporate. The colony's trail share is its portfolio. (Dorigo & Gambardella, 1997)
 
 ---
-video/specimen-ant.mp4
+video/myxobrain-specimen-ant.mp4
 Specimen 04: the ant colony.
 
 No ant knows the map. The colony still finds the shorter bridge. (Goss et al., 1989)
 
 ---
-a07.png · the bees
+post/07-the-bees.png · the bees
 They move when enough agree.
 
 Scouts dance for assets in proportion to their food. At a quorum, the swarm moves.
 
 ---
-video/specimen-bee.mp4
+video/myxobrain-specimen-bee.mp4
 Specimen 05: the honeybee swarm.
 
 A few hundred scouts, a lot of dancing, one decision. (Seeley & Buhrman, 1999)
 
 ---
-a08.png · E. coli
+post/08-e-coli.png · E. coli
 Keep swimming while it gets better.
 
 When the food drops, tumble to a random new heading. A memory of seconds is enough. (Berg & Brown, 1972)
 
 ---
-video/specimen-ecoli.mp4
+video/myxobrain-specimen-ecoli.mp4
 Specimen 06: Escherichia coli.
 
 Too small to smell left from right, so it compares now with a moment ago. (Berg & Purcell, 1977)
 
 ---
-a09.png · the morph
+post/09-one-click-morph.png · the morph
 One click, a different mind.
 
 On myxobrain.com the same 302 particles morph into each organism's real state, hour by hour. Drag the time slider and watch it change.
 
 ---
-video/explainer.mp4 · how it works
+video/myxobrain-explainer.mp4 · how it works
 The market becomes food. Six organisms. Four gates. Then you recompute it.
 
 All in 26 seconds. myxobrain.com
 
 ---
-a10.png · the scoreboard
+post/10-the-scoreboard.png · the scoreboard
 The scoreboard nobody likes to show.
 
 Every fold. Every gate. Every FAIL. To pass, an organism must beat holding on return and Sharpe, keep drawdown no worse, and win 3 of 4 folds.
 
 ---
-a11.png · rules.conf
+post/11-rules-conf.png · rules.conf
 Written before the run.
 
 48 settings chosen on past data only. Five seeds. 0.3% cost. A blind twin. Three sealed months.
 
 ---
-a12.png · the ledger
+post/12-the-ledger.png · the ledger
 Zero passes. All published.
 
 Six experiments, 36 organism runs. The failures stay on the record with the rest.
 
 ---
-video/papers.mp4 · the papers
+video/myxobrain-papers.mp4 · the papers
 The MYXO PAPER series in 30 seconds: the slime mold that solved a maze, the first mapped brain, the glass fish, the ant bridge, the bee quorum, run and tumble.
 
 ---
-a13.png · the papers
+post/13-twenty-papers.png · the papers
 20 papers. All on Crossref.
 
 Every rule and every constant in the engine traces back to a published source.
 
 ---
-a14.png · in your terminal
+post/14-in-your-terminal.png · in your terminal
 npx myxobrain-agent
 
 League, folds, gates, the live test, and `myxo verify` to re-hash every engine and data file the site publishes.
 
 ---
-a15.png · recompute
+post/15-recompute.png · recompute
 Press Recompute. Your browser reruns the test.
 
 The same engine files, the same raw data, the same five seeds. If one number were typed in by hand, it wouldn't match.
 
 ---
-a16.png · the control
+post/16-the-control.png · the control
 If a coin flip wins, you'll see it.
 
 Every mind runs beside a blind twin with no food, plain holding, and random positions.
 
 ---
-a17.png · the holdout
+post/17-the-holdout.png · the holdout
 Three months, sealed.
 
 The last three months of data stay unopened until an experiment passes every gate.
 
 ---
-a18.png · no language model
+post/18-no-language-model.png · no language model
 Biology decides. Not a chatbot.
 
 Tubes, spikes, pheromone, dances and tumbles: published models, run as math.
 
 ---
-a19.png · the six
+post/19-the-six.png · the six
 Six ways to find food.
 
 Flow. Smell. Spikes. Trails. Quorum. Tumble.
 
 ---
-a20.png · the question
+post/20-the-question.png · the question
 Can a mind with no brain beat holding?
 
 So far, no. Every attempt is published. Check it yourself: myxobrain.com
@@ -254,7 +254,7 @@ So far, no. Every attempt is published. Check it yourself: myxobrain.com
 
 ===== MILESTONES =====
 
-paydex/paydex-20k.mp4 · market cap $20K + DEX Screener paid
+video/myxobrain-dex.mp4 · market cap $20K + DEX Screener paid
 $20K.
 
 Thank you for the first 20K. The DEX Screener profile is paid.
@@ -264,7 +264,7 @@ The lab keeps running: six minds, every number public.
 CA: [CA]
 
 ---
-burn/burn-all-supply.mp4 · dev wallet burned its whole supply
+video/myxobrain-burn.mp4 · dev wallet burned its whole supply
 Burned. All of it.
 
 The dev wallet sent its entire $MYXO supply to the dead address. It now holds zero.
@@ -273,5 +273,429 @@ tx: [TX LINK]
 CA: [CA]
 
 
-===== RESEARCH SERIES =====
-POSTS.txt has every MYXO PAPER card (research/01-32) with its caption and source, plus product posts from the site.
+===== RESEARCH SERIES (folder paper/) =====
+
+MYXOBRAIN · semua post X (32 riset + 14 produk)
+
+Riset = seri "MYXO PAPER", tiap kartu ada nomornya dan sumber paper aslinya. Produk = screenshot situs live.
+Ritme saran: 3-4 post/hari (1-2 riset, 1-2 produk). Urutan riset ikut nomor: pembuka, lalu Physarum, Worm, Fry, Ant, Bee, E. coli, penutup.
+Sebelum posting angka (return, gates), cek dulu di myxobrain.com atau: npx myxobrain-agent
+
+=========================================================
+RISET · MYXO PAPER №01–32
+=========================================================
+
+--- R01 · MYXO PAPER №01 · THE PITCH
+Gambar: paper/01-the-pitch.png
+Sumber: MYXOBRAIN · myxobrain.com
+
+Six organisms, from a single cell to a 302-neuron worm.
+
+Each one runs as the model biologists published for it, and each one reads the same 11 Robinhood Chain assets as food.
+
+No language model makes the calls. myxobrain.com
+
+--- R02 · MYXO PAPER №02 · THE BLOB
+Gambar: paper/02-the-blob.png
+Sumber: Nakagaki, Yamada & Tóth · Nature · 2000
+
+Physarum polycephalum has no neurons at all.
+
+It's one giant cell with many nuclei, spreading as a network of tubes.
+
+In 2000 it solved a maze.
+
+--- R03 · MYXO PAPER №03 · THE MAZE
+Gambar: paper/03-the-maze.png
+Sumber: Nakagaki, Yamada & Tóth · Nature · 2000
+
+Nakagaki filled a maze with slime mold, then put oat flakes at the entrance and the exit.
+
+Hours later only one tube was left: the shortest path between the two.
+
+No map. No plan. Just flow.
+
+--- R04 · MYXO PAPER №04 · TOKYO
+Gambar: paper/04-tokyo.png
+Sumber: Tero et al. · Science · 2010
+
+2010: researchers placed oat flakes in the pattern of the cities around Tokyo and let a slime mold grow.
+
+The network it built was comparable to the real rail system in efficiency and resilience.
+
+Engineers took years. The blob took about a day.
+
+--- R05 · MYXO PAPER №05 · THE RULE
+Gambar: paper/05-the-rule.png
+Sumber: Tero, Kobayashi & Nakagaki · J. Theor. Biol. · 2007
+
+The whole trick fits in one line:
+
+dD/dt = f(|Q|) − γD
+
+A tube that carries flow thickens. A tube that doesn't, fades.
+
+That's the rule MYXOBRAIN's Physarum runs every hour.
+
+--- R06 · MYXO PAPER №06 · IN MYXOBRAIN
+Gambar: paper/06-physarum-in-myxobrain.png
+Sumber: MYXOBRAIN · server/solver.mjs
+
+In MYXOBRAIN, the 11 Robinhood Chain assets are 11 oat flakes.
+
+The plate solves for pressure, the tubes adapt, and whatever the slime mold keeps feeding becomes its portfolio.
+
+Watch it on myxobrain.com: click Physarum.
+
+--- R07 · MYXO PAPER №07 · THE MAP
+Gambar: paper/07-the-map.png
+Sumber: White, Southgate, Thomson & Brenner · Phil. Trans. R. Soc. B · 1986
+
+1986: White, Southgate, Thomson and Brenner publish the complete wiring diagram of a nervous system.
+
+Thousands of electron microscope slices of a 1 mm worm, traced by hand.
+
+The first animal ever fully mapped.
+
+--- R08 · MYXO PAPER №08 · THE COUNT
+Gambar: paper/08-the-count.png
+Sumber: White et al. · 1986
+
+Your brain: ~86 billion neurons.
+C. elegans: 302.
+
+Small enough to simulate every single one.
+
+That's the worm inside MYXOBRAIN.
+
+--- R09 · MYXO PAPER №09 · THE REMAP
+Gambar: paper/09-the-remap.png
+Sumber: Cook et al. · Nature · 2019
+
+33 years after the first map, Cook and colleagues mapped the whole worm again, both sexes, every chemical synapse and gap junction.
+
+That 2019 connectome is the wiring MYXOBRAIN's worm runs on, and the ring you see on the site.
+
+--- R10 · MYXO PAPER №10 · THE SPIKE
+Gambar: paper/10-the-spike.png
+Sumber: Shiu et al. · Nature · 2024
+
+Every neuron in the worm is a leaky integrate-and-fire cell: charge up, leak, spike, reset.
+
+The constants come from a 2024 whole-brain model of the fruit fly, not from a worm paper. The site says that out loud.
+
+--- R11 · MYXO PAPER №11 · IN MYXOBRAIN
+Gambar: paper/11-worm-in-myxobrain.png
+Sumber: MYXOBRAIN · Cook et al. 2019 connectome
+
+Each asset's food signal goes into the worm's smell neurons, AWC and ASE.
+
+It runs through the real 2019 wiring to a turn or a run: stay with an asset, or leave it.
+
+You can watch signals travel the synapses on myxobrain.com.
+
+--- R12 · MYXO PAPER №12 · GLASS FISH
+Gambar: paper/12-glass-fish.png
+Sumber: Ahrens et al. · Nature Methods · 2013
+
+A zebrafish larva is a few millimetres long and almost see-through.
+
+In 2013, light-sheet microscopy recorded nearly every neuron in its brain at the same time.
+
+One of the very few brains we can watch whole.
+
+--- R13 · MYXO PAPER №13 · THE GLOW
+Gambar: paper/13-the-glow.png
+Sumber: Chen et al. · Nature · 2013
+
+How do you see a neuron think?
+
+GCaMP6, a protein that glows when calcium rushes in during a spike.
+
+MYXOBRAIN's fry simulates that sensor too: its rise, its decay, its ceiling.
+
+--- R14 · MYXO PAPER №14 · FIRE TOGETHER
+Gambar: paper/14-fire-together.png
+Sumber: Hebb · The Organization of Behavior · 1949
+
+Donald Hebb, 1949: when one cell repeatedly helps fire another, the connection between them grows.
+
+Later summed up as "fire together, wire together."
+
+It's how the fry's synapses learn in MYXOBRAIN.
+
+--- R15 · MYXO PAPER №15 · THE CLOCK
+Gambar: paper/15-the-clock.png
+Sumber: Grama & Engert · Front. Neural Circuits · 2012
+
+21 ± 7 milliseconds.
+
+That's how long a larval zebrafish tectal neuron holds on to its input before it leaks away.
+
+Small numbers like this set how the fry in MYXOBRAIN reacts.
+
+--- R16 · MYXO PAPER №16 · IN MYXOBRAIN
+Gambar: paper/16-fry-in-myxobrain.png
+Sumber: MYXOBRAIN · server/league/vendor/fry-circuit.mjs
+
+MYXOBRAIN's fry is 11 spiking cells, one per asset, with Hebbian synapses between them.
+
+A cell that fires hard enough buys. A silent one sells.
+
+In EXP-004 it came closest of all six: 3 of 4 gates.
+
+--- R17 · MYXO PAPER №17 · THE BRIDGE
+Gambar: paper/17-the-bridge.png
+Sumber: Goss et al. · Naturwissenschaften · 1989
+
+Give an ant colony two bridges to food, one short, one long.
+
+Ants on the short bridge come back sooner, so its pheromone builds faster, so more ants take it.
+
+No leader. No map. The colony still picks right.
+
+--- R18 · MYXO PAPER №18 · EVAPORATION
+Gambar: paper/18-evaporation.png
+Sumber: Dorigo & Gambardella · IEEE Trans. Evol. Comput. · 1997
+
+If pheromone never faded, a colony would follow its first good idea forever.
+
+Evaporation lets old trails die so new ones can win.
+
+The same knob lives in MYXOBRAIN's ant: rho.
+
+--- R19 · MYXO PAPER №19 · THE SALESMAN
+Gambar: paper/19-the-salesman.png
+Sumber: Dorigo & Gambardella · 1997
+
+The travelling salesman problem: visit every city once, as short as possible.
+
+In 1997 Dorigo and Gambardella threw virtual ants at it: lay pheromone, let it evaporate, choose by chance.
+
+It worked well enough to start a field.
+
+--- R20 · MYXO PAPER №20 · THE LIMITS
+Gambar: paper/20-the-limits.png
+Sumber: Stützle & Hoos · Future Gener. Comput. Syst. · 2000
+
+One fix for ants that get stuck: clamp the pheromone.
+
+MAX–MIN Ant System sets a floor so no trail disappears and a ceiling so none takes over for good.
+
+MYXOBRAIN's ant uses the same bounds.
+
+--- R21 · MYXO PAPER №21 · IN MYXOBRAIN
+Gambar: paper/21-ant-in-myxobrain.png
+Sumber: MYXOBRAIN · server/league/orgs.mjs
+
+In MYXOBRAIN each asset is a food source for the colony.
+
+Trails that pay get pheromone, unused ones evaporate, and the share of pheromone on each trail is the portfolio.
+
+Honest result: the ant lost the most in EXP-004.
+
+--- R22 · MYXO PAPER №22 · THE SWARM
+Gambar: paper/22-the-swarm.png
+Sumber: Seeley · Honeybee Democracy · 2010
+
+When a honeybee colony splits, about ten thousand bees hang on a branch.
+
+A few hundred scouts fly out to look for a new home.
+
+What happens next is one of the best-studied group decisions in biology.
+
+--- R23 · MYXO PAPER №23 · THE DANCE
+Gambar: paper/23-the-dance.png
+Sumber: Seeley & Buhrman · Behav. Ecol. Sociobiol. · 1999
+
+A scout that finds a good cavity dances for it. A great cavity gets a longer, more vigorous dance.
+
+More dancing recruits more scouts, who dance too.
+
+No bee compares all the options. The swarm does.
+
+--- R24 · MYXO PAPER №24 · THE QUORUM
+Gambar: paper/24-the-quorum.png
+Sumber: Passino & Seeley · Behav. Ecol. Sociobiol. · 2006
+
+The swarm doesn't wait for everyone to agree.
+
+When enough scouts are present at one site at the same time, a quorum, the swarm takes off.
+
+MYXOBRAIN's bee moves its capital the same way.
+
+--- R25 · MYXO PAPER №25 · SPEED VS ACCURACY
+Gambar: paper/25-speed-vs-accuracy.png
+Sumber: Passino & Seeley · 2006
+
+Set the quorum low and the swarm decides fast but sometimes picks a worse home.
+
+Set it high and it chooses better but slower.
+
+Every trader knows this trade-off. The bees tuned it first.
+
+--- R26 · MYXO PAPER №26 · IN MYXOBRAIN
+Gambar: paper/26-bee-in-myxobrain.png
+Sumber: MYXOBRAIN · server/league/orgs.mjs
+
+In MYXOBRAIN the 11 assets are 11 candidate nests.
+
+Scouts dance for each in proportion to its food, dances fade, and when a quorum forms the swarm moves its capital there.
+
+--- R27 · MYXO PAPER №27 · RUN AND TUMBLE
+Gambar: paper/27-run-and-tumble.png
+Sumber: Berg & Brown · Nature · 1972
+
+E. coli moves in two modes: run, a straight swim, and tumble, a quick spin to a random new direction.
+
+That's all it can do. It's enough to find food.
+
+--- R28 · MYXO PAPER №28 · THE TRACKER
+Gambar: paper/28-the-tracker.png
+Sumber: Berg & Brown · 1972
+
+To see run and tumble, Howard Berg built a microscope that tracks a single bacterium in 3D as it swims.
+
+The tracks showed runs getting longer when the cell swam toward food.
+
+--- R29 · MYXO PAPER №29 · THE MEMORY
+Gambar: paper/29-the-memory.png
+Sumber: Macnab & Koshland · PNAS · 1972
+
+A bacterium doesn't measure where the food is.
+
+It compares how much food it senses now with a few seconds ago. Better: keep running. Worse: tumble.
+
+A memory of seconds, and it works.
+
+--- R30 · MYXO PAPER №30 · TOO SMALL
+Gambar: paper/30-too-small.png
+Sumber: Berg & Purcell · Biophys. J. · 1977
+
+Why compare time and not space?
+
+Berg and Purcell worked it out: a cell a couple of microns long can't reliably tell its front from its back by smell.
+
+So it remembers instead.
+
+--- R31 · MYXO PAPER №31 · IN MYXOBRAIN
+Gambar: paper/31-ecoli-in-myxobrain.png
+Sumber: MYXOBRAIN · server/league/orgs.mjs
+
+MYXOBRAIN's E. coli is a population of cells spread over the 11 assets.
+
+While an asset's food improves, the cells stay. When it worsens, they tumble to a random new one.
+
+Where the cells crowd is the portfolio.
+
+--- R32 · MYXO PAPER №32 · THE QUESTION
+Gambar: paper/32-the-question.png
+Sumber: MYXOBRAIN · data/lab/ledger.json
+
+Six experiments. 36 organism runs. Four gates each, written down before the run.
+
+So far: zero passes. Every one published, failures included.
+
+Check it yourself: npx myxobrain-agent verify
+
+=========================================================
+PRODUK · screenshot myxobrain.com
+=========================================================
+
+--- P01 · produk
+Gambar: _src/product/hero-worm.png
+
+What is MYXOBRAIN?
+
+Six models of real organisms, from a slime mold to a 302-neuron worm, reading the same 11 Robinhood Chain assets as food.
+
+No language model makes the calls. myxobrain.com
+
+--- P02 · produk
+Gambar: _src/product/hero-physarum.png
+
+Click Physarum on myxobrain.com and the same 302 particles become a slime mold's tube network, thick where the conductivity is high.
+
+The amber tubes are what it holds at that hour.
+
+--- P03 · produk
+Gambar: _src/product/hero-fry.png
+
+This is the fry: 11 spiking cells, one per asset.
+
+Big, bright cells are firing. Amber ones are held. Drag the time slider and watch them change hour by hour.
+
+--- P04 · produk
+Gambar: _src/product/hero-ant.png
+
+The ant colony, drawn from its own pheromone.
+
+Dense trails, more pheromone. The colony's trail share is its portfolio.
+
+--- P05 · produk
+Gambar: _src/product/hero-bee.png
+
+The swarm gathers where the scouts are dancing.
+
+One click on myxobrain.com, one organism, one hour of its real state.
+
+--- P06 · produk
+Gambar: _src/product/hero-ecoli.png
+
+E. coli: rod-shaped cells crowding the assets they swam to.
+
+When the food drops, they tumble somewhere else.
+
+--- P07 · produk
+Gambar: _src/product/specimens.png
+
+Every organism on the site comes with its papers: what it is, who published it, and what the engine takes from it.
+
+--- P08 · produk
+Gambar: _src/product/folds-gates.png
+
+The scoreboard nobody likes to show: every fold, every gate, every FAIL.
+
+To pass, an organism has to beat holding on return and Sharpe, with no worse drawdown, and win 3 of 4 folds.
+
+--- P09 · produk
+Gambar: _src/product/rules.png
+
+The rules are written before the run.
+
+4 folds. 48 settings chosen on past data only. 5 seeds. 0.3% cost. A blind twin with no food as the control. The last 3 months stay sealed until something passes.
+
+--- P10 · produk
+Gambar: _src/product/ledger.png
+
+Six experiments so far: momentum, on-chain flow, news, mean reversion, risk guard, hold with a tilt.
+
+36 runs. 0 passes. All published.
+
+--- P11 · produk
+Gambar: _src/product/sources.png
+
+20 papers behind the six minds, each looked up on Crossref, each linked to the line of code that uses it.
+
+--- P12 · produk
+Gambar: _src/product/cli.png
+
+MYXOBRAIN in your terminal:
+
+npx myxobrain-agent
+
+League, folds, gates, the live test, and `myxo verify` to re-hash every engine and data file the site publishes.
+
+--- P13 · produk
+Gambar: _src/product/specimen-fry.png
+
+Open any organism to watch it think: inputs per asset on the left, its own state in the middle, the portfolio on the right.
+
+Then press Recompute and your browser re-runs the whole test.
+
+--- P14 · produk
+Gambar: _src/product/specimen-worm.png
+
+The worm's page: food in, 302 neurons, a portfolio out.
+
+Every number on it can be recomputed in your browser.

@@ -1,4 +1,4 @@
-// Shared bits for the MYXOBRAIN X kit tools: a static server (the built site at /, this konten-x folder at /kit/),
+// Shared bits for the MYXOBRAIN X kit tools: a static server (the built site at /, this konten-x folder at /kit/; templates and inputs live in /kit/_src/),
 // a Playwright chromium, and a virtual clock so the 3D ring renders frame-exact in videos.
 // Every tool needs the site built first: sh deploy/build.sh (from myxobrain/).
 import { createServer } from "node:http";

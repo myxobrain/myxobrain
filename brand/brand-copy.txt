@@ -1,0 +1,48 @@
+MYXOBRAIN — brand copy
+======================
+
+NAME
+MYXOBRAIN   (terminal wordmark: MYXOBRAIN//TERM)
+
+TAGLINE (40)
+Six minds. One market. Real data.
+
+X / TWITTER BIO (145 / 160)
+Six minds modeled on real organisms trade the same 11 Robinhood Chain assets. Rules written first, every number recomputable. npx myxobrain-agent
+
+X / TWITTER BIO, alternative (140 / 160)
+Slime mold, worm, fish fry, ants, bees and E. coli trade the same 11 Robinhood Chain assets. Rules written first, every number recomputable.
+
+X LOCATION
+Robinhood Chain
+
+X WEBSITE
+myxobrain.com
+
+GITHUB ORGANIZATION DESCRIPTION
+Six minds modeled on real organisms trade the same 11 Robinhood Chain assets. Terminal UI, 3D connectome, every number recomputable.
+
+NPM / ONE LINE
+MYXOBRAIN//TERM in your terminal: npx myxobrain-agent
+
+ABOUT (long)
+MYXOBRAIN runs six models of real organisms as trading minds: a slime mold, the 302-neuron worm C. elegans, a zebrafish larva, an ant colony, a bee swarm and E. coli. They trade the same 11 Robinhood Chain assets (ETH, SPY, QQQ, NVDA, TSLA, AAPL, MSFT, AMZN, GOOGL, META, COIN) under the same rules, written down before every run: four walk-forward folds, 48 settings chosen on past data only, five seeds, 0.3% cost on every trade, and four gates to pass. None has passed all four yet, and every failure is published.
+
+The home page is a terminal. In the middle, the worm's real wiring turns on a ring; click any organism and the same 302 particles morph into that organism's state per asset at the selected hour. Every number on the site can be recomputed in your browser or with `npx myxobrain-agent verify`.
+
+Paper money only. Models of organisms, not living ones. Not financial advice.
+
+BIO (Bahasa Indonesia)
+Enam pikiran yang meniru organisme nyata (jamur lendir, cacing, larva ikan, semut, lebah, E. coli) trading 11 aset Robinhood Chain dengan aturan yang ditulis sebelum dijalankan. Semua angka bisa dihitung ulang.
+
+LINKS
+Web      https://myxobrain.com   (mirror: https://myxobrain.github.io/myxobrain/)
+npm      https://www.npmjs.com/package/myxobrain-agent
+GitHub   https://github.com/myxobrain
+
+COLORS
+Amber   #FFB000   (accent, logo)
+Black   #070707   (ground)
+Ink     #D8D8D2   (text)
+Up      #5BD68A   Down #FF7A66
+FONT    JetBrains Mono (Google Fonts)

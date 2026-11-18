@@ -1,5 +1,5 @@
-// Render every MYXOBRAIN still: the X banner, the MYXO PAPER cards and product screenshots of the real site, then write POSTS.txt.
-// Usage (from myxobrain/):  sh deploy/build.sh && node konten-x/_src/render.mjs [banner,cards,product,posts]
+// Render every MYXOBRAIN still: the X banner, the MYXO PAPER cards and product screenshots of the real site, then write _src/paper-captions.txt.
+// Usage (from myxobrain/):  sh deploy/build.sh && node konten-x/_src/stills.mjs [banner,cards,product,posts]
 // Needs Playwright's chromium (PLAYWRIGHT=path/to/playwright/index.mjs, default: the copy WORMBRAIN's capture uses).
 import { createServer } from "node:http";
 import { readFile, stat, mkdir, cp, rm, writeFile } from "node:fs/promises";
@@ -35,28 +35,28 @@ async function still(url, w, h, file, settle = 3200, prep) {
   await p.screenshot({ path: file, type: "png" }); await p.close(); console.log("✓", file.replace(REPO + "/", ""));
 }
 
-if (only.includes("banner")) await still("/_studio/studio.html?banner", 3000, 1000, join(OUT, "brand/x-banner.png"), 4500);
-if (only.includes("cards")) for (const c of CARDS) await still(`/_studio/studio.html?card=${c.n}`, 1920, 1080, join(OUT, `research/${String(c.n).padStart(2, "0")}-${c.slug}.png`), 4200);
+if (only.includes("banner")) await still("/_studio/studio.html?banner", 3000, 1000, join(REPO, "brand/MYXOBRAIN-X/banner-3000x1000.png"), 4500);
+if (only.includes("cards")) for (const c of CARDS) await still(`/_studio/studio.html?card=${c.n}`, 1920, 1080, join(OUT, `paper/${String(c.n).padStart(2, "0")}-${c.slug}.png`), 4200);
 if (only.includes("product")) {
   const pick = (k) => async (p) => { await p.click(`#league .row[data-k="${k}"]`); };
   const at = (sel) => async (p) => { await p.evaluate((s) => { const e = document.querySelector(s); window.scrollTo(0, e.getBoundingClientRect().top + scrollY - 60); }, sel); };
-  await still("/", 1600, 900, join(OUT, "product/hero-worm.png"), 3500);
-  for (const k of ["physarum", "fry", "ant", "bee", "ecoli"]) await still("/", 1600, 900, join(OUT, `product/hero-${k}.png`), 4000, pick(k));
-  await still("/", 1600, 900, join(OUT, "product/specimens.png"), 1500, at("#specimens"));
-  await still("/", 1600, 900, join(OUT, "product/folds-gates.png"), 1500, at(".grid"));
-  await still("/", 1600, 900, join(OUT, "product/rules.png"), 1500, at("#rules"));
-  await still("/", 1600, 900, join(OUT, "product/ledger.png"), 1500, at("#ledger"));
-  await still("/", 1600, 900, join(OUT, "product/sources.png"), 1500, at("#papers"));
-  await still("/", 1600, 900, join(OUT, "product/cli.png"), 1500, at("#cli"));
-  await still("/organism?k=fry&exp=EXP-004", 1600, 900, join(OUT, "product/specimen-fry.png"), 3500);
-  await still("/organism?k=worm&exp=EXP-004", 1600, 900, join(OUT, "product/specimen-worm.png"), 3500);
+  await still("/", 1600, 900, join(OUT, "_src/product/hero-worm.png"), 3500);
+  for (const k of ["physarum", "fry", "ant", "bee", "ecoli"]) await still("/", 1600, 900, join(OUT, `_src/product/hero-${k}.png`), 4000, pick(k));
+  await still("/", 1600, 900, join(OUT, "_src/product/specimens.png"), 1500, at("#specimens"));
+  await still("/", 1600, 900, join(OUT, "_src/product/folds-gates.png"), 1500, at(".grid"));
+  await still("/", 1600, 900, join(OUT, "_src/product/rules.png"), 1500, at("#rules"));
+  await still("/", 1600, 900, join(OUT, "_src/product/ledger.png"), 1500, at("#ledger"));
+  await still("/", 1600, 900, join(OUT, "_src/product/sources.png"), 1500, at("#papers"));
+  await still("/", 1600, 900, join(OUT, "_src/product/cli.png"), 1500, at("#cli"));
+  await still("/organism?k=fry&exp=EXP-004", 1600, 900, join(OUT, "_src/product/specimen-fry.png"), 3500);
+  await still("/organism?k=worm&exp=EXP-004", 1600, 900, join(OUT, "_src/product/specimen-worm.png"), 3500);
 }
 await browser.close(); server.close();
 await rm(join(DIST, "_studio"), { recursive: true, force: true });
 
 if (only.includes("posts")) {
   const pad = (n) => String(n).padStart(2, "0");
-  const research = CARDS.map((c) => `--- R${pad(c.n)} · MYXO PAPER №${pad(c.n)} · ${c.tag}\nGambar: research/${pad(c.n)}-${c.slug}.png\nSumber: ${c.cite}\n\n${c.post}\n`).join("\n");
+  const research = CARDS.map((c) => `--- R${pad(c.n)} · MYXO PAPER №${pad(c.n)} · ${c.tag}\nGambar: paper/${pad(c.n)}-${c.slug}.png\nSumber: ${c.cite}\n\n${c.post}\n`).join("\n");
   const P = [
     ["hero-worm.png", "What is MYXOBRAIN?\n\nSix models of real organisms, from a slime mold to a 302-neuron worm, reading the same 11 Robinhood Chain assets as food.\n\nNo language model makes the calls. myxobrain.com"],
     ["hero-physarum.png", "Click Physarum on myxobrain.com and the same 302 particles become a slime mold's tube network, thick where the conductivity is high.\n\nThe amber tubes are what it holds at that hour."],
@@ -73,8 +73,8 @@ if (only.includes("posts")) {
     ["specimen-fry.png", "Open any organism to watch it think: inputs per asset on the left, its own state in the middle, the portfolio on the right.\n\nThen press Recompute and your browser re-runs the whole test."],
     ["specimen-worm.png", "The worm's page: food in, 302 neurons, a portfolio out.\n\nEvery number on it can be recomputed in your browser."],
   ];
-  const product = P.map(([img, t], i) => `--- P${pad(i + 1)} · produk\nGambar: product/${img}\n\n${t}\n`).join("\n");
-  await writeFile(join(OUT, "POSTS.txt"), `MYXOBRAIN · semua post X (${CARDS.length} riset + ${P.length} produk)
+  const product = P.map(([img, t], i) => `--- P${pad(i + 1)} · produk\nGambar: _src/product/${img}\n\n${t}\n`).join("\n");
+  await writeFile(join(OUT, "_src/paper-captions.txt"), `MYXOBRAIN · semua post X (${CARDS.length} riset + ${P.length} produk)
 
 Riset = seri "MYXO PAPER", tiap kartu ada nomornya dan sumber paper aslinya. Produk = screenshot situs live.
 Ritme saran: 3-4 post/hari (1-2 riset, 1-2 produk). Urutan riset ikut nomor: pembuka, lalu Physarum, Worm, Fry, Ant, Bee, E. coli, penutup.
@@ -90,5 +90,5 @@ PRODUK · screenshot myxobrain.com
 =========================================================
 
 ${product}`);
-  console.log("✓ konten-x/POSTS.txt");
+  console.log("✓ konten-x/_src/paper-captions.txt (copy the sections you need into captions.txt)");
 }

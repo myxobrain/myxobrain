@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<!-- MYXOBRAIN X posts, 1600 x 900 (rendered at 2x by _tools/posts.mjs). ?p=<id>. Served at /kit/ with the built site at /,
-     so the 3D specimen is the site's own ring.js. Images: _hf/ (Hugging Face stills) or product/ (screenshots of myxobrain.com). -->
+<!-- MYXOBRAIN X posts, 1600 x 900 (rendered at 2x by posts.mjs). ?p=<id>. Served at /kit/ with the built site at /,
+     so the 3D specimen is the site's own ring.js. Images: _src/hf/ (Hugging Face stills) or _src/product/ (screenshots of myxobrain.com). -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#070707;--fg:#EDEDE7;--dim:#9A9A92;--faint:#6A6A62;--acc:#FFB000;--line:#262622}
@@ -63,11 +63,11 @@ const id = q.get("p") || "p01", [kick, head, sub, vis, cite] = P[id], s = docume
 const [kind, ref] = vis.split(":");
 const exists = (u) => fetch(u, { method: "HEAD" }).then((r) => r.ok, () => false);
 let html = "";
-const hf = `/kit/_hf/${ref}.webp`, shot = `/kit/product/${ref}`;
+const hf = `/kit/_src/hf/${ref}.webp`, shot = `/kit/_src/product/${ref}`;
 let hfUse = hf;
 let mode = kind;
 const ALT = { vault: "jars", dawn: "city", ember: "slime" };   // stand-ins until Hugging Face quota allows the real still
-if (kind === "hf" && !(await exists(hf))) { const alt = ALT[ref] && `/kit/_hf/${ALT[ref]}.webp`; if (alt && (await exists(alt))) hfUse = alt; else mode = "ring"; }
+if (kind === "hf" && !(await exists(hf))) { const alt = ALT[ref] && `/kit/_src/hf/${ALT[ref]}.webp`; if (alt && (await exists(alt))) hfUse = alt; else mode = "ring"; }
 if (kind === "shot" && !(await exists(shot))) mode = "ring";
 if (mode === "hf") html += `<div class="photo" style="background-image:url(${hfUse})"></div>`;
 if (mode === "shot") html += `<div class="shot"><img src="${shot}" alt=""></div>`;

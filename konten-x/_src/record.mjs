@@ -1,8 +1,8 @@
-// node konten-x/_tools/demo.mjs -> postingan-ca/ca-demo.mp4: intro card + a real screen recording of myxobrain.com + end card.
-// SITE defaults to https://myxobrain.com (SITE=http://127.0.0.1:4174 for a local build). The cards come from _v.html.
+// node konten-x/_src/record.mjs -> video/myxobrain-ca.mp4: intro card + a real screen recording of myxobrain.com + end card.
+// SITE defaults to https://myxobrain.com (SITE=http://127.0.0.1:4174 for a local build). The cards come from film.html.
 import { execFileSync } from "node:child_process"; import fs from "node:fs"; import path from "node:path";
 import { KIT, chromium, ambient } from "./lib.mjs";
-const here = path.join(KIT, "_tools"), TMP = path.join(here, ".demo"), SITE = process.env.SITE || "https://myxobrain.com";
+const here = path.join(KIT, "_src"), TMP = path.join(here, ".demo"), SITE = process.env.SITE || "https://myxobrain.com";
 fs.rmSync(TMP, { recursive: true, force: true }); fs.mkdirSync(TMP);
 const b = await chromium.launch();
 const ctx = await b.newContext({ viewport: { width: 1600, height: 900 }, recordVideo: { dir: TMP, size: { width: 1600, height: 900 } } });
@@ -42,12 +42,12 @@ const vid = await p.video().path(); await ctx.close(); await b.close();
 
 const rec = path.join(TMP, "rec.mp4");
 execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-ss", START.toFixed(2), "-to", END.toFixed(2), "-i", vid, "-vf", "scale=1920:1080:flags=lanczos,fps=30,format=yuv420p", "-an", "-c:v", "libx264", "-crf", "17", "-preset", "slow", rec]);
-for (const s of ["caintro", "caoutro"]) execFileSync("node", [path.join(here, "render.mjs"), s, path.join(TMP, s + ".mp4")], { env: { ...process.env, SILENT: "1" }, stdio: "inherit" });
+for (const s of ["caintro", "caoutro"]) execFileSync("node", [path.join(here, "film.mjs"), s, path.join(TMP, s + ".mp4")], { env: { ...process.env, SILENT: "1" }, stdio: "inherit" });
 const list = path.join(TMP, "list.txt"); fs.writeFileSync(list, ["caintro", "rec", "caoutro"].map((n) => `file '${path.join(TMP, n + ".mp4")}'`).join("\n"));
 const joined = path.join(TMP, "joined.mp4");
 execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", list, "-an", "-c:v", "libx264", "-crf", "18", "-preset", "slow", "-pix_fmt", "yuv420p", joined]);
 const dur = Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", joined]).toString());
-const out = path.join(KIT, "postingan-ca", "ca-demo.mp4"); fs.mkdirSync(path.dirname(out), { recursive: true });
+const out = path.join(KIT, "video", "myxobrain-ca.mp4"); fs.mkdirSync(path.dirname(out), { recursive: true });
 execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", joined, ...ambient(dur), "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", "-shortest", out]);
 fs.rmSync(TMP, { recursive: true, force: true });
-console.log("✓ postingan-ca/ca-demo.mp4", (fs.statSync(out).size / 1e6).toFixed(1) + " MB", dur.toFixed(1) + "s");
+console.log("✓ video/myxobrain-ca.mp4", (fs.statSync(out).size / 1e6).toFixed(1) + " MB", dur.toFixed(1) + "s");

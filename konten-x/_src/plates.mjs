@@ -1,10 +1,10 @@
-// node konten-x/_tools/plates.mjs [ids]: cinematic stills from Hugging Face into _hf/<id>.webp (Z-Image Turbo space;
+// node konten-x/_src/plates.mjs [ids]: cinematic stills from Hugging Face into _src/hf/<id>.webp (Z-Image Turbo space;
 // HF=flux for FLUX.1-dev while the account has ZeroGPU quota). The MYXOBRAIN world: a dark lab at night, warm amber light,
 // living specimens under glass. No text, no logos, no faces. Same token and client the PRYSM kit uses.
 import { Client } from "/Users/sergiodyegogmail.com/Documents/projek-token/melos/brand/hf/node_modules/@gradio/client/dist/index.js";
 import fs from "node:fs"; import path from "node:path";
 import { KIT } from "./lib.mjs";
-const OUT = path.join(KIT, "_hf"); fs.mkdirSync(OUT, { recursive: true });
+const OUT = path.join(KIT, "_src", "hf"); fs.mkdirSync(OUT, { recursive: true });
 const token = fs.readFileSync("/Users/sergiodyegogmail.com/Documents/projek-token/melos/.hf-token", "utf8").trim();
 const STYLE = "cinematic scientific fine-art photograph, near black background, warm amber key light, deep shadows, chiaroscuro, macro lens, shallow depth of field, anamorphic wide shot, subtle film grain, ultra detailed, no text, no letters, no numbers, no logo, no watermark, no faces, no people";
 const SHOTS = {

@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<!-- MYXOBRAIN X videos, 1920 x 1080. ?s=<scene>; _tools/render.mjs steps a virtual clock and calls window.seek(t) at 30 fps,
+<!-- MYXOBRAIN X videos, 1920 x 1080. ?s=<scene>; film.mjs steps a virtual clock and calls window.seek(t) at 30 fps,
      so the site's own 3D ring (ring.js) and every text animation render frame-exact.
      Scenes: caintro caoutro paydex burn morph explainer papers specimen-<physarum|worm|fry|ant|bee|ecoli> -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@ const foot = () => el(`<span style="color:var(--fg)">myxobrain.com</span><span>p
 const fmt = (n) => "$" + (n >= 1000 ? (n / 1000).toFixed(n < 10000 ? 1 : 0) + "K" : Math.round(n));
 const exists = (u) => fetch(u, { method: "HEAD" }).then((r) => r.ok, () => false);
 const ALT = { vault: "jars", dawn: "city", ember: "slime" };   // stand-ins until Hugging Face quota allows the real still
-async function photo(name, cls = "") { let u = `/kit/_hf/${name}.webp`; if (!(await exists(u)) && ALT[name]) u = `/kit/_hf/${ALT[name]}.webp`; if (!(await exists(u))) return null; const d = el(""); d.className = "bgimg " + cls; d.style.backgroundImage = `url(${u})`; await new Promise((r) => { const i = new Image(); i.onload = i.onerror = r; i.src = u; }); return d; }
+async function photo(name, cls = "") { let u = `/kit/_src/hf/${name}.webp`; if (!(await exists(u)) && ALT[name]) u = `/kit/_src/hf/${ALT[name]}.webp`; if (!(await exists(u))) return null; const d = el(""); d.className = "bgimg " + cls; d.style.backgroundImage = `url(${u})`; await new Promise((r) => { const i = new Image(); i.onload = i.onerror = r; i.src = u; }); return d; }
 let DATA;
 async function ring(css) {
   DATA ||= await Promise.all([fetch("/data/connectome-ring.json").then((r) => r.json()), fetch("/data/league-EXP-004.json").then((r) => r.json())]);
@@ -158,7 +158,7 @@ const SCENES = {
   // ---------------- the MYXO PAPER cards, one after another ----------------
   papers: { dur: 30, async build() {
       const ids = ["02-the-blob", "04-tokyo", "07-the-map", "08-the-count", "12-glass-fish", "14-fire-together", "17-the-bridge", "24-the-quorum", "27-run-and-tumble", "32-the-question"];
-      const cards = []; for (const id of ids) { const u = `/kit/research/${id}.png`; if (await exists(u)) { const d = el(""); d.className = "card"; d.style.backgroundImage = `url(${u})`; await new Promise((r) => { const i = new Image(); i.onload = i.onerror = r; i.src = u; }); cards.push(d); } }
+      const cards = []; for (const id of ids) { const u = `/kit/paper/${id}.png`; if (await exists(u)) { const d = el(""); d.className = "card"; d.style.backgroundImage = `url(${u})`; await new Promise((r) => { const i = new Image(); i.onload = i.onerror = r; i.src = u; }); cards.push(d); } }
       const D = 30 / Math.max(1, cards.length);
       return (t) => cards.forEach((c, i) => { const r = t - i * D; c.style.opacity = r < -0.4 || r > D + .4 ? 0 : win(r, -.4, D + .4, .6); c.style.transform = `scale(${1.04 - .04 * clamp(r / D)})`; });
     } },
