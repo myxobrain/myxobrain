@@ -701,9 +701,53 @@ The worm's page: food in, 302 neurons, a portfolio out.
 Every number on it can be recomputed in your browser.
 
 ------------------------------------------------------------
-BURN POST  (post/21-burned.png · re-render right after each burn: node konten-x/_src/posts.mjs b01)
+BURN POST  (post/21-burned.png · re-render after every burn: node konten-x/_src/posts.mjs b01)
 The numbers on the image are read from myxobrain.com/api/token when it renders (everything in the dead address).
 
+--- BURN 01 · 2026-11-18 · facts read from Robinhood Chain
+Launch (mint of 1,000,000,000 $MYXO):  2026-11-18 09:30:10 UTC
+Dev buy at launch:   0.0095 ETH -> 5,169,565.29 $MYXO   tx 0x0ad3f60b6dfd0ecded1daa14b37b7cb15a6911f929766d3a74899d34044a0632
+Burn, 3 min later:   5,169,565.29 $MYXO -> 0x…dEaD      tx 0x13188ef219bb269df85579795150df3449b8c197ea86c419c7df0ba660d58ee2
+Deployer wallet:     0xde9E6774a941b2771A88EeC2631845e1AEFb312D   balance after the burn: 0 $MYXO
+
+Single post:
+
+The dev bag is gone. 🔥
+
+At launch the deployer wallet bought 5,169,565 $MYXO (0.52% of supply) with 0.0095 ETH.
+Three minutes later it sent every one of them to the dead address.
+
+Deployer balance now: 0.
+Dead address: 5.17M $MYXO. Nobody holds the key, so they never come back.
+
+Burn tx: https://explorer.mainnet.chain.robinhood.com/tx/0x13188ef219bb269df85579795150df3449b8c197ea86c419c7df0ba660d58ee2
+Deployer: https://explorer.mainnet.chain.robinhood.com/address/0xde9E6774a941b2771A88EeC2631845e1AEFb312D
+
+Same rule as the lab: don't trust, verify. Every burn is on the ledger at myxobrain.com
+
+CA: 0xd0AD95EC5e73d6c858F99cA0b4CC7D75357a88E7
+$MYXO
+
+Thread version:
+
+1/ The $MYXO dev bag is burned. All of it. 🔥 Receipts below.
+
+2/ 09:30:10 UTC: $MYXO launches on Pons. 1,000,000,000 minted.
+In the same block the deployer buys 0.0095 ETH worth: 5,169,565 $MYXO, 0.52% of supply.
+https://explorer.mainnet.chain.robinhood.com/tx/0x0ad3f60b6dfd0ecded1daa14b37b7cb15a6911f929766d3a74899d34044a0632
+
+3/ 09:33:28 UTC: every one of those 5,169,565 $MYXO goes to 0x000…dEaD.
+https://explorer.mainnet.chain.robinhood.com/tx/0x13188ef219bb269df85579795150df3449b8c197ea86c419c7df0ba660d58ee2
+
+4/ Deployer balance after the burn: 0 $MYXO.
+https://explorer.mainnet.chain.robinhood.com/address/0xde9E6774a941b2771A88EeC2631845e1AEFb312D
+
+5/ MYXOBRAIN publishes every failed experiment. Burns get the same treatment: the dead-address balance is live at myxobrain.com, read straight from the chain.
+
+CA: 0xd0AD95EC5e73d6c858F99cA0b4CC7D75357a88E7
+$MYXO
+
+--- NEXT BURNS (template; the studio panel's History has the amount and the tx)
 Burned. 🔥
 
 [AMOUNT] $MYXO just went to the dead address. Nobody holds the key, so it never comes back.
